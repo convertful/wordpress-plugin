@@ -15,7 +15,7 @@ function ogr_handle_return_to_endpoint() {
 }
 
 function ogr_settings_page() {
-	$domain = 'http://optinguru.local';
+	$domain = 'https://dev.optin.guru';
 	ogr_handle_return_to_endpoint();
 	$website_id = get_option( 'optinguru_website_id' );
 	if ( $website_id === FALSE ) {
