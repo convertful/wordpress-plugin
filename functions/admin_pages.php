@@ -24,7 +24,9 @@ function ogr_settings_page() {
 			<h1 class="ogr-connect-header">Connect Website to Optin.Guru</h1>
 			<form class="ogr-connect-card" method="post" action="<?php echo esc_attr( $domain . '/oauth2/connect_website' ) ?>">
 				<div class="ogr-connect-card-body">
-					<p>Convert more visitors into leads and subscribers using high-end responsive optin forms.</p>
+					<p>Please create an Optin.Guru Account or connect to an existing Account.
+						This will allow you to <strong>grow email lists easily</strong> using our top-notch builder
+						with unique features and amazing pre-built form templates!</p>
 				</div>
 				<div class="ogr-connect-card-footer">
 					<input type="hidden" name="endpoint" value="<?php echo esc_attr( admin_url( 'tools.php?page=og-settings' ) ) ?>">
@@ -47,7 +49,8 @@ function ogr_settings_page() {
 			<div class="ogr-connect-card">
 				<div class="ogr-connect-card-body">
 					<p>Congratulations! Your website is connected to Optin.Guru.</p>
-					<p>Now you can <strong>grow your email lists easliy</strong>, using its top-notch list builder with unique features and amazing pre-built templates!</p>
+					<p>Now you can <strong>grow email lists easily</strong> using our top-notch builder
+						with unique features and amazing pre-built form templates!</p>
 				</div>
 				<div class="ogr-connect-card-footer">
 					<a class="ogr-btn action_create" href="<?php echo esc_attr( $domain . '/widget/create?website_id=' . $website_id ) ?>">
