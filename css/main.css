@@ -1,0 +1,5 @@
+body.admin_page_og-connect #adminmenumain,
+body.admin_page_og-connect #wpadminbar,
+body.admin_page_og-connect #wpfooter {
+	display: none !important;
+}
