@@ -53,7 +53,7 @@ function ogr_settings_page() {
 						with unique features and amazing pre-built form templates!</p>
 				</div>
 				<div class="ogr-connect-card-footer">
-					<a class="ogr-btn action_create" href="<?php echo esc_attr( $domain . '/widget/create?website_id=' . $website_id ) ?>">
+					<a class="ogr-btn action_create" href="<?php echo esc_attr( $domain . '/widgets/create?website_id=' . $website_id ) ?>">
 						Create New Optin
 					</a>
 				</div>
