@@ -24,6 +24,7 @@ body.admin_page_og-connect #wpfooter {
 	display: inline-block;
 	vertical-align: middle;
 	content: '';
+	margin-right: 10px;
 	width: 51px;
 	height: 36px;
 	background: url(https://app.optin.guru/assets/img/logo_blue.png) no-repeat;
@@ -68,8 +69,8 @@ body.admin_page_og-connect #wpfooter {
 	text-decoration: none;
 }
 .ogr-btn:hover {
-	border-color: #cdebb5;
-	background: #cdebb5;
+	border-color: #6da142;
+	background: #6da142;
 	color: #fff;
 }
 .ogr-connect-help {
