@@ -1,5 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+
 body.admin_page_og-connect #adminmenumain,
 body.admin_page_og-connect #wpadminbar,
 body.admin_page_og-connect #wpfooter {
 	display: none !important;
+}
+
+.ogr-connect {
+	padding: 2.5rem 0;
+	text-align: center;
+	font: 16px/28px 'Roboto', sans-serif;
+	color: #335578;
+}
+.ogr-connect-logo {
+	margin: 0 auto;
+	display: table;
+	color: #335578;
+	font-size: 26px;
+	vertical-align: top;
+	line-height: 70px;
+}
+.ogr-connect-logo::before {
+	display: inline-block;
+	vertical-align: middle;
+	content: '';
+	width: 51px;
+	height: 36px;
+	background: url(https://app.optin.guru/assets/img/logo_blue.png) no-repeat;
+	background-size: cover;
+}
+.ogr-connect-box {
+	box-shadow: 0 3px 20px rgba(54, 59, 65, 0.1);
+	background-color: #fff;
+	padding: 45px 30px 40px;
+	width: 680px;
+	margin: 40px auto 0;
+}
+.ogr-connect-header {
+	margin: 0 0 25px;
+	font-size: 24px;
+	font-weight: 400;
+	color: #335578;
+}
+.ogr-connect-card-body p {
+	margin: 0 0 25px;
+	font-size: 16px;
+}
+.ogr-connect-card-body p strong {
+	font-weight: 700;
+}
+.ogr-btn {
+	display: block;
+	margin: auto;
+	padding: 12px 0;
+	width: 310px;
+	line-height: 1;
+	font-size: 16px;
+	font-weight: normal;
+	text-transform: none;
+	-webkit-transition: all .5s ease;
+	transition: all .5s ease;
+	border: 0;
+	border-radius: 20px;
+	background: #7bb24d;
+	color: #fff;
+	cursor: pointer;
+	text-decoration: none;
+}
+.ogr-btn:hover {
+	border-color: #cdebb5;
+	background: #cdebb5;
+	color: #fff;
+}
+.ogr-connect-help {
+	font-weight: 300;
+	line-height: 40px;
+	font-size: 14px;
+	text-decoration: none;
+	color: #335578;
+}
+.ogr-connect-help:hover {
+	text-decoration: underline;
 }
