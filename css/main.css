@@ -41,7 +41,7 @@ body.admin_page_og-connect #wpfooter {
 	background-color: #fff;
 	padding: 45px 30px 40px;
 	width: 680px;
-	margin: 40px auto 0;
+	margin: 40px auto 20px;
 }
 .ogr-connect-header {
 	margin: 0 0 25px;
@@ -88,5 +88,15 @@ body.admin_page_og-connect #wpfooter {
 	color: #335578;
 }
 .ogr-connect-help:hover {
+	text-decoration: underline;
+}
+.ogr-connect-disconnect {
+	font-weight: 300;
+	line-height: 40px;
+	font-size: 14px;
+	text-decoration: none;
+	color: rgba(58, 97, 136, 0.49);
+}
+.ogr-connect-disconnect:hover {
 	text-decoration: underline;
 }

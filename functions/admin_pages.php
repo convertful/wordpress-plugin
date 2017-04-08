@@ -16,9 +16,18 @@ function ogr_handle_return_to_endpoint() {
 	}
 }
 
+function ogr_handle_disconnect_click() {
+	if ( isset( $_GET['disconnect'] ) AND wp_verify_nonce( $_GET['disconnect'], 'ogr_disconnect' ) ) {
+		ogr_uninstall();
+		// Redirect
+		echo '<script type="text/javascript">location.assign(\'' . admin_url( 'tools.php?page=og-settings' ) . '\')</script>';
+	}
+}
+
 function ogr_settings_page() {
 	global $ogr_domain;
 	ogr_handle_return_to_endpoint();
+	ogr_handle_disconnect_click();
 	$website_id = get_option( 'optinguru_website_id' );
 	if ( $website_id === FALSE ) {
 		?>
@@ -66,12 +75,13 @@ function ogr_settings_page() {
 							with unique features and amazing pre-built form templates!</p>
 					</div>
 					<div class="ogr-connect-card-footer">
-						<a class="ogr-btn action_create" href="<?php echo esc_attr( $ogr_domain . '/widgets/create?website_id=' . $website_id ) ?>">
+						<a class="ogr-btn action_create" href="<?php echo esc_attr( $ogr_domain . '/widgets/create?website_id=' . $website_id ) ?>" target="_blank">
 							Create New Optin
 						</a>
 					</div>
 				</div>
 			</div>
+			<a href="<?php echo admin_url( 'tools.php?page=og-settings&disconnect=' . wp_create_nonce( 'ogr_disconnect' ) ) ?>" class="ogr-connect-disconnect">Disconnect site</a>
 		</div>
 		<?php
 	}
