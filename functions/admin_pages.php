@@ -7,15 +7,16 @@ function ogr_add_admin_pages() {
 
 function ogr_handle_return_to_endpoint() {
 	// Handling return to backend
-	if ( isset( $_POST['owner_id'] ) AND isset( $_POST['website_id'] ) AND isset( $_POST['token'] ) AND isset( $_POST['_nonce'] ) AND wp_verify_nonce( $_POST['_nonce'], 'ogr_connect' ) ) {
-		update_option( 'optinguru_owner_id', (int) $_POST['owner_id'], TRUE );
-		update_option( 'optinguru_website_id', (int) $_POST['website_id'], FALSE );
-		update_option( 'optinguru_token', $_POST['token'], FALSE );
+	if ( isset( $_GET['owner_id'] ) AND isset( $_GET['website_id'] ) AND isset( $_GET['token'] ) AND isset( $_GET['_nonce'] ) AND wp_verify_nonce( $_GET['_nonce'], 'ogr_connect' ) ) {
+		update_option( 'optinguru_owner_id', (int) $_GET['owner_id'], TRUE );
+		update_option( 'optinguru_website_id', (int) $_GET['website_id'], FALSE );
+		update_option( 'optinguru_token', $_GET['token'], FALSE );
 	}
 }
 
 function ogr_settings_page() {
 	$domain = 'https://dev.optin.guru';
+//	$domain = 'http://optinguru.local';
 	ogr_handle_return_to_endpoint();
 	$website_id = get_option( 'optinguru_website_id' );
 	if ( $website_id === FALSE ) {
