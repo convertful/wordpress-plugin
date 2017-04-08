@@ -17,17 +17,19 @@ function ogr_handle_return_to_endpoint() {
 }
 
 function ogr_settings_page() {
-	$domain = 'https://dev.optin.guru';
-	$domain = 'http://optinguru.local';
+	global $ogr_domain;
 	ogr_handle_return_to_endpoint();
 	$website_id = get_option( 'optinguru_website_id' );
 	if ( $website_id === FALSE ) {
 		?>
 		<div class="ogr-connect">
-			<div class="ogr-connect-logo">Optin.Guru</div>
+			<div class="ogr-connect-logo">
+				<div class="ogr-connect-logo-img" style="background-image: url(<?php echo $ogr_domain ?>/assets/img/logo_blue.png);"></div>
+				<div class="ogr-connect-logo-text">Optin.Guru</div>
+			</div>
 			<div class="ogr-connect-box">
 				<h1 class="ogr-connect-header">Connect Website to Optin.Guru</h1>
-				<form class="ogr-connect-card" method="post" action="<?php echo esc_attr( $domain . '/oauth2/connect_website' ) ?>">
+				<form class="ogr-connect-card" method="post" action="<?php echo esc_attr( $ogr_domain . '/oauth2/connect_website' ) ?>">
 					<div class="ogr-connect-card-body">
 						<p>Please create an Optin.Guru Account or connect to an existing Account.<br>
 							This will allow you to <strong>grow email lists easily</strong> using our top-notch builder
@@ -61,7 +63,7 @@ function ogr_settings_page() {
 							with unique features and amazing pre-built form templates!</p>
 					</div>
 					<div class="ogr-connect-card-footer">
-						<a class="ogr-btn action_create" href="<?php echo esc_attr( $domain . '/widgets/create?website_id=' . $website_id ) ?>">
+						<a class="ogr-btn action_create" href="<?php echo esc_attr( $ogr_domain . '/widgets/create?website_id=' . $website_id ) ?>">
 							Create New Optin
 						</a>
 					</div>

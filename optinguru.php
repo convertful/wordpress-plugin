@@ -13,7 +13,8 @@
  */
 
 // Global variables for plugin usage (global declaration is needed here for WP CLI compatibility)
-global $ogr_file, $ogr_dir, $ogr_uri, $ogr_version;
+global $ogr_file, $ogr_dir, $ogr_uri, $ogr_version, $ogr_domain;
+$ogr_domain = 'http://optinguru.local';
 $ogr_file = __FILE__;
 $ogr_dir = plugin_dir_path( __FILE__ );
 $ogr_uri = plugins_url( '', __FILE__ );
@@ -34,16 +35,17 @@ if ( is_admin() ) {
 }
 
 function ogr_enqueue_scripts() {
-	global $ogr_version;
-	wp_enqueue_script( 'optinguru-api', 'https://dev.optin.guru/OptinGuru.js', array(), $ogr_version, TRUE );
+	global $ogr_domain, $ogr_version;
+	wp_enqueue_script( 'optinguru-api', $ogr_domain . '/OptinGuru.js', array(), $ogr_version, TRUE );
 }
 
 function ogr_script_loader_tag( $tag, $handle ) {
 	if ( $handle !== 'optinguru-api' ) {
 		return $tag;
 	}
-	
-	return '<script type="text/javascript" id="optinguru-api" src="https://dev.optin.guru/OptinGuru.js" data-owner="' . get_option( 'optinguru_owner_id' ) . '" async="async"></script>';
+	global $ogr_domain;
+
+	return '<script type="text/javascript" id="optinguru-api" src="' . $ogr_domain . '/OptinGuru.js" data-owner="' . get_option( 'optinguru_owner_id' ) . '" async="async"></script>';
 }
 
 add_action( 'admin_enqueue_scripts', 'ogr_admin_enqueue_scripts' );
