@@ -11,12 +11,14 @@ function ogr_handle_return_to_endpoint() {
 		update_option( 'optinguru_owner_id', (int) $_GET['owner_id'], TRUE );
 		update_option( 'optinguru_website_id', (int) $_GET['website_id'], FALSE );
 		update_option( 'optinguru_token', $_GET['token'], FALSE );
+		// Redirect
+		echo '<script type="text/javascript">location.assign(\'' . admin_url( 'tools.php?page=og-settings' ) . '\')</script>';
 	}
 }
 
 function ogr_settings_page() {
 	$domain = 'https://dev.optin.guru';
-//	$domain = 'http://optinguru.local';
+	$domain = 'http://optinguru.local';
 	ogr_handle_return_to_endpoint();
 	$website_id = get_option( 'optinguru_website_id' );
 	if ( $website_id === FALSE ) {
