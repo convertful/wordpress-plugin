@@ -53,7 +53,10 @@ function ogr_settings_page() {
 	} else {
 		?>
 		<div class="ogr-connect type_success">
-			<div class="ogr-connect-logo">Optin.Guru</div>
+			<div class="ogr-connect-logo">
+				<div class="ogr-connect-logo-img" style="background-image: url(<?php echo $ogr_domain ?>/assets/img/logo_blue.png);"></div>
+				<div class="ogr-connect-logo-text">Optin.Guru</div>
+			</div>
 			<div class="ogr-connect-box">
 				<h1 class="ogr-connect-header">Website is Connected to Optin.Guru</h1>
 				<div class="ogr-connect-card">
