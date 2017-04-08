@@ -16,11 +16,11 @@ body.admin_page_og-connect #wpfooter {
 	margin: 0 auto;
 	display: table;
 	color: #335578;
-	font-size: 26px;
+	font-size: 0;
 	vertical-align: top;
 	line-height: 70px;
 }
-.ogr-connect-logo::before {
+.ogr-connect-logo-img {
 	display: inline-block;
 	vertical-align: middle;
 	content: '';
@@ -30,6 +30,12 @@ body.admin_page_og-connect #wpfooter {
 	background: url(https://app.optin.guru/assets/img/logo_blue.png) no-repeat;
 	background-size: cover;
 }
+.ogr-connect-logo-text {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 26px;
+}
+
 .ogr-connect-box {
 	box-shadow: 0 3px 20px rgba(54, 59, 65, 0.1);
 	background-color: #fff;
@@ -67,6 +73,7 @@ body.admin_page_og-connect #wpfooter {
 	color: #fff;
 	cursor: pointer;
 	text-decoration: none;
+	outline: none;
 }
 .ogr-btn:hover {
 	border-color: #6da142;
