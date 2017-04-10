@@ -15,7 +15,7 @@
 // Global variables for plugin usage (global declaration is needed here for WP CLI compatibility)
 global $ogr_file, $ogr_dir, $ogr_uri, $ogr_version, $ogr_domain;
 $ogr_domain = 'http://optinguru.local';
-//$ogr_domain = 'https://dev.optin.guru';
+$ogr_domain = 'https://dev.optin.guru';
 $ogr_file = __FILE__;
 $ogr_dir = plugin_dir_path( __FILE__ );
 $ogr_uri = plugins_url( '', __FILE__ );
@@ -51,7 +51,7 @@ function ogr_script_loader_tag( $tag, $handle ) {
 
 add_action( 'admin_enqueue_scripts', 'ogr_admin_enqueue_scripts' );
 function ogr_admin_enqueue_scripts( $hook ) {
-	if ( $hook !== 'toplevel_page_og-settings' AND $hook !== 'admin_page_og-connect' ) {
+	if ( $hook !== 'tools_page_og-settings' ) {
 		return;
 	}
 
@@ -66,7 +66,7 @@ function ogr_activated_plugin( $plugin ) {
 	if ( $plugin === plugin_basename( $ogr_file ) ) {
 		$owner_id = get_option( 'optinguru_owner_id' );
 		if ( $owner_id === FALSE ) {
-			wp_redirect( admin_url( 'admin.php?page=og-settings' ) );
+			wp_redirect( admin_url( 'tools.php?page=og-settings' ) );
 			exit;
 		}
 	}

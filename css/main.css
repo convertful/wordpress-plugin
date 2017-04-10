@@ -27,7 +27,7 @@ body.admin_page_og-connect #wpfooter {
 	margin-right: 10px;
 	width: 51px;
 	height: 36px;
-	background: url(https://app.optin.guru/assets/img/logo_blue.png) no-repeat;
+	background-repeat: no-repeat;
 	background-size: cover;
 }
 .ogr-connect-logo-text {
@@ -79,11 +79,6 @@ body.admin_page_og-connect #wpfooter {
 	border-color: #6da142;
 	background: #6da142;
 	color: #fff;
-}
-.ogr-btn.ogr-btn-premium{
-	margin-top: 10px;
-	background: #eeee0d;
-	color: #000;
 }
 .ogr-connect-help {
 	font-weight: 300;
