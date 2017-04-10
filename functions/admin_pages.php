@@ -78,6 +78,7 @@ function ogr_settings_page() {
 						<a class="ogr-btn action_create" href="<?php echo esc_attr( $ogr_domain . '/widgets/create?website_id=' . $website_id ) ?>" target="_blank">
 							Create New Optin
 						</a>
+						<a href="https://optin.guru/premium/" class="ogr-btn-premium" target="_blank">Learn about Premium features</a>
 					</div>
 				</div>
 			</div>

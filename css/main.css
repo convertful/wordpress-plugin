@@ -80,6 +80,10 @@ body.admin_page_og-connect #wpfooter {
 	background: #6da142;
 	color: #fff;
 }
+.ogr-btn-premium{
+	display: block;
+	margin-top: 19px;
+}
 .ogr-connect-help {
 	font-weight: 300;
 	line-height: 40px;
