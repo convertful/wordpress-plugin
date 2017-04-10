@@ -4,7 +4,7 @@ add_action( 'admin_menu', 'ogr_add_admin_pages', 30 );
 function ogr_add_admin_pages() {
 	// sorry :-(
 	echo '<style>.dashicons-admin-og{
-		background: url('.plugins_url( 'optinguru/images/og_icon_logo.png' ).') no-repeat center 5px / 30px auto !important;
+		background: url('.plugin_dir_url(dirname(__FILE__)).'images/og_icon_logo.png) no-repeat center 5px / 30px auto !important;
 	}</style>';
 	add_menu_page( 'Optin.Guru settings', 'Optin.Guru', 'manage_options', 'og-settings', 'ogr_settings_page', 'dashicons-admin-og', 99);
 	//add_submenu_page( 'tools.php', 'Optin.Guru', 'Optin.Guru', 'manage_options', 'og-settings2', 'ogr_settings_page' );
