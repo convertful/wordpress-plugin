@@ -2,7 +2,8 @@
 
 add_action( 'admin_menu', 'ogr_add_admin_pages', 30 );
 function ogr_add_admin_pages() {
-	add_submenu_page( 'tools.php', 'Optin.Guru', 'Optin.Guru', 'manage_options', 'og-settings', 'ogr_settings_page' );
+	add_menu_page( 'Optin.Guru settings', 'Optin.Guru', 'manage_options', 'og-settings', 'ogr_settings_page', plugins_url( 'optinguru/images/logo_blue.png' ), 99);
+	//add_submenu_page( 'tools.php', 'Optin.Guru', 'Optin.Guru', 'manage_options', 'og-settings2', 'ogr_settings_page' );
 }
 
 function ogr_handle_return_to_endpoint() {
@@ -12,7 +13,7 @@ function ogr_handle_return_to_endpoint() {
 		update_option( 'optinguru_website_id', (int) $_GET['website_id'], FALSE );
 		update_option( 'optinguru_token', $_GET['token'], FALSE );
 		// Redirect
-		echo '<script type="text/javascript">location.assign(\'' . admin_url( 'tools.php?page=og-settings' ) . '\')</script>';
+		echo '<script type="text/javascript">location.assign(\'' . admin_url( 'admin.php?page=og-settings' ) . '\')</script>';
 	}
 }
 
@@ -20,7 +21,7 @@ function ogr_handle_disconnect_click() {
 	if ( isset( $_GET['disconnect'] ) AND wp_verify_nonce( $_GET['disconnect'], 'ogr_disconnect' ) ) {
 		ogr_uninstall();
 		// Redirect
-		echo '<script type="text/javascript">location.assign(\'' . admin_url( 'tools.php?page=og-settings' ) . '\')</script>';
+		echo '<script type="text/javascript">location.assign(\'' . admin_url( 'admin.php?page=og-settings' ) . '\')</script>';
 	}
 }
 
@@ -45,7 +46,7 @@ function ogr_settings_page() {
 							with unique features and amazing pre-built form templates!</p>
 					</div>
 					<div class="ogr-connect-card-footer">
-						<input type="hidden" name="endpoint" value="<?php echo esc_attr( admin_url( 'tools.php?page=og-settings' ) ) ?>">
+						<input type="hidden" name="endpoint" value="<?php echo esc_attr( admin_url( 'admin.php?page=og-settings' ) ) ?>">
 						<input type="hidden" name="domain" value="<?php echo esc_attr( preg_replace( '~^https?:\/\/~', '', get_site_url() ) ) ?>">
 						<input type="hidden" name="website_name" value="<?php echo esc_attr( get_bloginfo( 'name' ) ) ?>">
 						<input type="hidden" name="platform" value="WordPress">
@@ -78,10 +79,13 @@ function ogr_settings_page() {
 						<a class="ogr-btn action_create" href="<?php echo esc_attr( $ogr_domain . '/widgets/create?website_id=' . $website_id ) ?>" target="_blank">
 							Create New Optin
 						</a>
+						<a href="https://optin.guru/premium/" class="ogr-btn ogr-btn-premium" target="_blank">
+							Learn about Premium features
+						</a>
 					</div>
 				</div>
 			</div>
-			<a href="<?php echo admin_url( 'tools.php?page=og-settings&disconnect=' . wp_create_nonce( 'ogr_disconnect' ) ) ?>" class="ogr-connect-disconnect">Disconnect site</a>
+			<a href="<?php echo admin_url( 'admin.php?page=og-settings&disconnect=' . wp_create_nonce( 'ogr_disconnect' ) ) ?>" class="ogr-connect-disconnect">Disconnect site</a>
 		</div>
 		<?php
 	}

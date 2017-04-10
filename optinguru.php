@@ -51,7 +51,7 @@ function ogr_script_loader_tag( $tag, $handle ) {
 
 add_action( 'admin_enqueue_scripts', 'ogr_admin_enqueue_scripts' );
 function ogr_admin_enqueue_scripts( $hook ) {
-	if ( $hook !== 'tools_page_og-settings' AND $hook !== 'admin_page_og-connect' ) {
+	if ( $hook !== 'toplevel_page_og-settings' AND $hook !== 'admin_page_og-connect' ) {
 		return;
 	}
 
@@ -66,7 +66,7 @@ function ogr_activated_plugin( $plugin ) {
 	if ( $plugin === plugin_basename( $ogr_file ) ) {
 		$owner_id = get_option( 'optinguru_owner_id' );
 		if ( $owner_id === FALSE ) {
-			wp_redirect( admin_url( 'tools.php?page=og-settings' ) );
+			wp_redirect( admin_url( 'admin.php?page=og-settings' ) );
 			exit;
 		}
 	}
