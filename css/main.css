@@ -83,6 +83,7 @@ body.admin_page_og-connect #wpfooter {
 .ogr-btn-premium{
 	display: block;
 	margin-top: 19px;
+	box-shadow: none !important; /* <- fix border after click */
 }
 .ogr-connect-help {
 	font-weight: 300;
