@@ -4,9 +4,8 @@
  * Plugin Name: MailChimp Forms by Optin.Guru
  * Version: 1.0.0
  * Plugin URI: https://optin.guru/
- * Description: Optin forms builder, compatible with MailChimp and 25+ other popular integrations.
- * Author: CodeLights
- * Author URI: https://optin.guru/
+ * Description: Pop-ups, sideboxes, bars and other opt-in forms to find a relevant way into your visitor’s inbox. Works with MailChimp, ConvertKit, AWeber, GetResponse and 25+ other.
+ * Author: Optin.Guru
  * License: GPLv2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: optinguru
@@ -14,8 +13,8 @@
 
 // Global variables for plugin usage (global declaration is needed here for WP CLI compatibility)
 global $ogr_file, $ogr_dir, $ogr_uri, $ogr_version, $ogr_domain;
-$ogr_domain = 'http://optinguru.local';
-$ogr_domain = 'https://dev.optin.guru';
+//$ogr_domain = 'http://optinguru.local';
+$ogr_domain = 'https://app.optin.guru';
 $ogr_file = __FILE__;
 $ogr_dir = plugin_dir_path( __FILE__ );
 $ogr_uri = plugins_url( '', __FILE__ );
