@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: MailChimp Forms by Optin.Guru
- * Version: 1.0.0
+ * Version: 1.1
  * Plugin URI: https://optin.guru/
  * Description: Pop-ups, sideboxes, bars and other opt-in forms to find a relevant way into your visitor’s inbox. Works with MailChimp, ConvertKit, AWeber, GetResponse and 25+ other.
  * Author: Optin.Guru
@@ -70,6 +70,14 @@ function ogr_activated_plugin( $plugin ) {
 		}
 	}
 }
+
+add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'ogr_plugin_action_links' );
+function ogr_plugin_action_links( $links ) {
+	return array_merge(array(
+		'<a href="' . admin_url( 'tools.php?page=og-settings' ) . '">' . __( 'Settings' ) . '</a>',
+	), $links);
+}
+
 
 register_uninstall_hook( $ogr_file, 'ogr_uninstall' );
 function ogr_uninstall() {

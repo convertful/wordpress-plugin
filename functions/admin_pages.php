@@ -7,9 +7,9 @@ function ogr_add_admin_pages() {
 
 function ogr_handle_return_to_endpoint() {
 	// Handling return to backend
-	if ( isset( $_GET['owner_id'] ) AND isset( $_GET['website_id'] ) AND isset( $_GET['token'] ) AND isset( $_GET['_nonce'] ) AND wp_verify_nonce( $_GET['_nonce'], 'ogr_connect' ) ) {
+	if ( isset( $_GET['owner_id'] ) AND isset( $_GET['site_id'] ) AND isset( $_GET['token'] ) AND isset( $_GET['_nonce'] ) AND wp_verify_nonce( $_GET['_nonce'], 'ogr_connect' ) ) {
 		update_option( 'optinguru_owner_id', (int) $_GET['owner_id'], TRUE );
-		update_option( 'optinguru_website_id', (int) $_GET['website_id'], FALSE );
+		update_option( 'optinguru_site_id', (int) $_GET['site_id'], FALSE );
 		update_option( 'optinguru_token', $_GET['token'], FALSE );
 		// Redirect
 		echo '<script type="text/javascript">location.assign(\'' . admin_url( 'tools.php?page=og-settings' ) . '\')</script>';
@@ -28,8 +28,8 @@ function ogr_settings_page() {
 	global $ogr_domain;
 	ogr_handle_return_to_endpoint();
 	ogr_handle_disconnect_click();
-	$website_id = get_option( 'optinguru_website_id' );
-	if ( $website_id === FALSE ) {
+	$site_id = get_option( 'optinguru_site_id', get_option( 'optinguru_website_id' ) );
+	if ( $site_id === FALSE ) {
 		?>
 		<div class="ogr-connect">
 			<div class="ogr-connect-logo">
@@ -37,7 +37,7 @@ function ogr_settings_page() {
 				<div class="ogr-connect-logo-text">Optin.Guru</div>
 			</div>
 			<div class="ogr-connect-box">
-				<h1 class="ogr-connect-header">Connect Website to Optin.Guru</h1>
+				<h1 class="ogr-connect-header">Connect Site to Optin.Guru</h1>
 				<form class="ogr-connect-card" method="post" action="<?php echo esc_attr( $ogr_domain . '/oauth2/connect_website' ) ?>">
 					<div class="ogr-connect-card-body">
 						<p>Please create an Optin.Guru Account or connect to an existing Account.<br>
@@ -56,7 +56,7 @@ function ogr_settings_page() {
 					</div>
 				</form>
 			</div>
-			<a href="https://help.optin.guru/og/connect/" class="ogr-connect-help" target="_blank">Get help connecting your site</a>
+			<a href="https://app.optin.guru/docs/connect/wordpress/" class="ogr-connect-help" target="_blank">Get help connecting your site</a>
 		</div>
 		<?php
 	} else {
@@ -67,7 +67,7 @@ function ogr_settings_page() {
 				<div class="ogr-connect-logo-text">Optin.Guru</div>
 			</div>
 			<div class="ogr-connect-box">
-				<h1 class="ogr-connect-header">Website is Connected to Optin.Guru</h1>
+				<h1 class="ogr-connect-header">Site is Connected to Optin.Guru</h1>
 				<div class="ogr-connect-card">
 					<div class="ogr-connect-card-body">
 						<p>Congratulations! Your website is connected to Optin.Guru.</p>
@@ -75,7 +75,7 @@ function ogr_settings_page() {
 							with unique features and amazing pre-built form templates!</p>
 					</div>
 					<div class="ogr-connect-card-footer">
-						<a class="ogr-btn action_create" href="<?php echo esc_attr( $ogr_domain . '/widgets/create?website_id=' . $website_id ) ?>" target="_blank">
+						<a class="ogr-btn action_create" href="<?php echo esc_attr( $ogr_domain . '/sites/' . $site_id . '/widgets/create/' ) ?>" target="_blank">
 							Create New Optin
 						</a>
 						<a href="https://optin.guru/premium/" class="ogr-btn-premium" target="_blank">Learn about Premium features</a>

@@ -3,7 +3,7 @@ Contributors: rsukhar
 Tags: optin, opt-in, mailchimp, popup, bar, slidein, subscribe, signup, form, email, marketing, lead, campaign
 Requires at least: 4.0
 Tested up to: 4.7.3
-Stable tag: 1.0.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -65,6 +65,10 @@ Back-end (editor): Edge, two latest versions of Chrome, Safari, FireFox and Oper
 5. Connection completed
 
 == Changelog ==
+
+= 1.1 =
+* Compatibility with the updated Optin.Guru
+* Settings now page is quickly accessible froms plugin list
 
 = 1.0 =
 * Initial version.
