@@ -76,11 +76,11 @@ echo 'create database `wp`;' | mysql -uroot -ppassword
 curl -s -o /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar > /dev/null
 chmod +x /usr/local/bin/wp
 sudo chown ubuntu:ubuntu /usr/local/bin/wp
-# Creating website
+# Creating site
 cd /srv/wp.optinguru.local/www
 wp core download --allow-root
 wp core config --dbname=wp --dbuser=root --dbpass=password --allow-root
-wp core install --url="wp.optinguru.local" --title="Local OG WordPress Website" --admin_user=admin --admin_password=admin --admin_email="admin@example.com" --allow-root
+wp core install --url="wp.optinguru.local" --title="Local OG WordPress Site" --admin_user=admin --admin_password=admin --admin_email="admin@example.com" --allow-root
 sudo chown -R www-data:www-data /srv/wp.optinguru.local
 # Adding plugin
 ln -s /srv/og-wordpress /srv/wp.optinguru.local/www/wp-content/plugins/optinguru

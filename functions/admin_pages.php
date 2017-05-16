@@ -38,7 +38,7 @@ function ogr_settings_page() {
 			</div>
 			<div class="ogr-connect-box">
 				<h1 class="ogr-connect-header">Connect Site to Optin.Guru</h1>
-				<form class="ogr-connect-card" method="post" action="<?php echo esc_attr( $ogr_domain . '/oauth2/connect_website' ) ?>">
+				<form class="ogr-connect-card" method="post" action="<?php echo esc_attr( $ogr_domain . '/oauth2/connect_site' ) ?>">
 					<div class="ogr-connect-card-body">
 						<p>Please create an Optin.Guru Account or connect to an existing Account.<br>
 							This will allow you to <strong>grow email lists easily</strong> using our top-notch builder
@@ -47,7 +47,7 @@ function ogr_settings_page() {
 					<div class="ogr-connect-card-footer">
 						<input type="hidden" name="endpoint" value="<?php echo esc_attr( admin_url( 'tools.php?page=og-settings' ) ) ?>">
 						<input type="hidden" name="domain" value="<?php echo esc_attr( preg_replace( '~^https?:\/\/~', '', get_site_url() ) ) ?>">
-						<input type="hidden" name="website_name" value="<?php echo esc_attr( get_bloginfo( 'name' ) ) ?>">
+						<input type="hidden" name="site_name" value="<?php echo esc_attr( get_bloginfo( 'name' ) ) ?>">
 						<input type="hidden" name="platform" value="WordPress">
 						<input type="hidden" name="_nonce" value="<?php echo esc_attr( wp_create_nonce( 'ogr_connect' ) ) ?>">
 						<button class="ogr-btn action_connect">
@@ -70,7 +70,7 @@ function ogr_settings_page() {
 				<h1 class="ogr-connect-header">Site is Connected to Optin.Guru</h1>
 				<div class="ogr-connect-card">
 					<div class="ogr-connect-card-body">
-						<p>Congratulations! Your website is connected to Optin.Guru.</p>
+						<p>Congratulations! Your site is connected to Optin.Guru.</p>
 						<p>Now you can <strong>grow email lists easily</strong> using our top-notch builder
 							with unique features and amazing pre-built form templates!</p>
 					</div>

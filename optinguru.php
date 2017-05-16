@@ -82,7 +82,7 @@ function ogr_plugin_action_links( $links ) {
 register_uninstall_hook( $ogr_file, 'ogr_uninstall' );
 function ogr_uninstall() {
 	// Options cleanup
-	foreach ( array( 'owner_id', 'website_id', 'token' ) as $option_name ) {
+	foreach ( array( 'owner_id', 'site_id', 'website_id', 'token' ) as $option_name ) {
 		delete_option( 'optinguru_' . $option_name );
 	}
 }

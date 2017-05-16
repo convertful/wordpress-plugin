@@ -17,13 +17,13 @@ Pop-ups, sideboxes, bars and other opt-in forms to find a relevant way into your
 
 ### Free Plugin to Grow Subscriber Base Fast
 
-To convert visitors into subscribers and followers, you need to use opt-in forms. We offer pop-ups, sideboxes (slideins), floating bars, fullscreens and other popular types of forms. Our solution is free, fast-to-result, doesn’t lower website speed and has no limits for visitors, forms and integrations.
+To convert visitors into subscribers and followers, you need to use opt-in forms. We offer pop-ups, sideboxes (slideins), floating bars, fullscreens and other popular types of forms. Our solution is free, fast-to-result, doesn’t lower site speed and has no limits for visitors, forms and integrations.
 
 Create different signup, subscribe, newsletter, download forms and connect them to MailChimp, ConvertKit, AWeber, GetResponse, ConstantContact, Campaign Monitor and 25+ other email services. We’ll give you quick support and provide step-by-step instructions.
 
 From the creators of Impreza WordPress Theme and SiteOrigin CodeLights Plugin.
 
-### Unlimited: Customize, Set Behavior, Connect Websites and Email Services
+### Unlimited: Customize, Set Behavior, Connect Sites and Email Services
 
 We created an opt-in form plugin that cures the main pain points you might have:
 
@@ -47,7 +47,7 @@ Visit our open and friendly-written [Knowledge Base (Documentation)](https://app
 
 Contact us on the [contact form](https://optin.guru/contact-form/) with your questions, technical issues or feature requests.
 
-Learn more about Optin.Guru [on our website](https://optin.guru/).
+Learn more about Optin.Guru [on our site](https://optin.guru/).
 
 == Frequently Asked Questions ==
 
