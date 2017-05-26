@@ -33,8 +33,7 @@ function conv_settings_page() {
 		?>
 		<div class="conv-connect">
 			<div class="conv-connect-logo">
-				<div class="conv-connect-logo-img" style="background-image: url(<?php echo $conv_domain ?>/assets/img/logo_blue.png);"></div>
-				<div class="conv-connect-logo-text">Convertful</div>
+				<img class="conv-connect-logo-img" src="<?php echo $conv_domain ?>/assets/img/logo_blue.png" srcset="<?php echo $conv_domain ?>/assets/img/logo_blue@2x.png 2x" alt="Convertful">
 			</div>
 			<div class="conv-connect-box">
 				<h1 class="conv-connect-header">Connect Site to Convertful</h1>
@@ -63,8 +62,7 @@ function conv_settings_page() {
 		?>
 		<div class="conv-connect type_success">
 			<div class="conv-connect-logo">
-				<div class="conv-connect-logo-img" style="background-image: url(<?php echo $conv_domain ?>/assets/img/logo_blue.png);"></div>
-				<div class="conv-connect-logo-text">Convertful</div>
+				<img class="conv-connect-logo-img" src="<?php echo $conv_domain ?>/assets/img/logo_blue.png" srcset="<?php echo $conv_domain ?>/assets/img/logo_blue@2x.png 2x" alt="Convertful">
 			</div>
 			<div class="conv-connect-box">
 				<h1 class="conv-connect-header">Site is Connected to Convertful</h1>
