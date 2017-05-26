@@ -40,16 +40,16 @@ sudo apt-get install -y -f mysql-server mysql-client nginx php-fpm
 # Install required used php packages
 sudo apt-get install -y -f php-mysql php-curl php-gd
 # Creating required folders
-sudo rm -rf /srv/wp.optinguru.local
-sudo mkdir -p /srv/wp.optinguru.local/{www,logs}
-sudo chmod -R 7777 /srv/wp.optinguru.local
+sudo rm -rf /srv/wp.convertful.local
+sudo mkdir -p /srv/wp.convertful.local/{www,logs}
+sudo chmod -R 7777 /srv/wp.convertful.local
 # Nginx virtual host
 cat << 'EOF' | sudo tee /etc/nginx/sites-enabled/default
 server {
     listen 80;
-    server_name wp.optinguru.local;
-    root /srv/wp.optinguru.local/www;
-    error_log /srv/wp.optinguru.local/logs/error.log error;
+    server_name wp.convertful.local;
+    root /srv/wp.convertful.local/www;
+    error_log /srv/wp.convertful.local/logs/error.log error;
     index index.php;
     location / {
         try_files $uri $uri/ /index.php?$args;
@@ -77,13 +77,13 @@ curl -s -o /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-
 chmod +x /usr/local/bin/wp
 sudo chown ubuntu:ubuntu /usr/local/bin/wp
 # Creating site
-cd /srv/wp.optinguru.local/www
+cd /srv/wp.convertful.local/www
 wp core download --allow-root
 wp core config --dbname=wp --dbuser=root --dbpass=password --allow-root
-wp core install --url="wp.optinguru.local" --title="Local OG WordPress Site" --admin_user=admin --admin_password=admin --admin_email="admin@example.com" --allow-root
-sudo chown -R www-data:www-data /srv/wp.optinguru.local
+wp core install --url="wp.convertful.local" --title="Local OG WordPress Site" --admin_user=admin --admin_password=admin --admin_email="admin@example.com" --allow-root
+sudo chown -R www-data:www-data /srv/wp.convertful.local
 # Adding plugin
-ln -s /srv/og-wordpress /srv/wp.optinguru.local/www/wp-content/plugins/optinguru
+ln -s /srv/og-wordpress /srv/wp.convertful.local/www/wp-content/plugins/convertful
 echo "Done"
 
 ########################################################################################################################

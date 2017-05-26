@@ -6,13 +6,13 @@ body.admin_page_og-connect #wpfooter {
 	display: none !important;
 }
 
-.ogr-connect {
+.conv-connect {
 	padding: 2.5rem 0;
 	text-align: center;
 	font: 16px/28px 'Roboto', sans-serif;
 	color: #335578;
 }
-.ogr-connect-logo {
+.conv-connect-logo {
 	margin: 0 auto;
 	display: table;
 	color: #335578;
@@ -20,7 +20,7 @@ body.admin_page_og-connect #wpfooter {
 	vertical-align: top;
 	line-height: 70px;
 }
-.ogr-connect-logo-img {
+.conv-connect-logo-img {
 	display: inline-block;
 	vertical-align: middle;
 	content: '';
@@ -30,33 +30,33 @@ body.admin_page_og-connect #wpfooter {
 	background-repeat: no-repeat;
 	background-size: cover;
 }
-.ogr-connect-logo-text {
+.conv-connect-logo-text {
 	display: inline-block;
 	vertical-align: middle;
 	font-size: 26px;
 }
 
-.ogr-connect-box {
+.conv-connect-box {
 	box-shadow: 0 3px 20px rgba(54, 59, 65, 0.1);
 	background-color: #fff;
 	padding: 45px 30px 40px;
 	width: 680px;
 	margin: 40px auto 20px;
 }
-.ogr-connect-header {
+.conv-connect-header {
 	margin: 0 0 25px;
 	font-size: 24px;
 	font-weight: 400;
 	color: #335578;
 }
-.ogr-connect-card-body p {
+.conv-connect-card-body p {
 	margin: 0 0 25px;
 	font-size: 16px;
 }
-.ogr-connect-card-body p strong {
+.conv-connect-card-body p strong {
 	font-weight: 700;
 }
-.ogr-btn {
+.conv-btn {
 	display: block;
 	margin: auto;
 	padding: 12px 0;
@@ -75,33 +75,33 @@ body.admin_page_og-connect #wpfooter {
 	text-decoration: none;
 	outline: none;
 }
-.ogr-btn:hover {
+.conv-btn:hover {
 	border-color: #6da142;
 	background: #6da142;
 	color: #fff;
 }
-.ogr-btn-premium{
+.conv-btn-premium{
 	display: block;
 	margin-top: 19px;
 	box-shadow: none !important; /* <- fix border after click */
 }
-.ogr-connect-help {
+.conv-connect-help {
 	font-weight: 300;
 	line-height: 40px;
 	font-size: 14px;
 	text-decoration: none;
 	color: #335578;
 }
-.ogr-connect-help:hover {
+.conv-connect-help:hover {
 	text-decoration: underline;
 }
-.ogr-connect-disconnect {
+.conv-connect-disconnect {
 	font-weight: 300;
 	line-height: 40px;
 	font-size: 14px;
 	text-decoration: none;
 	color: rgba(58, 97, 136, 0.49);
 }
-.ogr-connect-disconnect:hover {
+.conv-connect-disconnect:hover {
 	text-decoration: underline;
 }

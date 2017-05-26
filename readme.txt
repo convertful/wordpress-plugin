@@ -1,4 +1,4 @@
-=== MailChimp Forms by Optin.Guru ===
+=== Convertful MailChimp Forms ===
 Contributors: rsukhar
 Tags: optin, opt-in, mailchimp, popup, bar, slidein, subscribe, signup, form, email, marketing, lead, campaign
 Requires at least: 4.0
@@ -37,17 +37,17 @@ We created an opt-in form plugin that cures the main pain points you might have:
 
 ### Become a Premium user
 
-Time-limited [upfront Premium subscription](https://optin.guru/premium/) for just $1.25 per month.
+Time-limited [upfront Premium subscription](https://convertful.com/premium/) for just $1.25 per month.
 
 Our Premium version is based on the principle of giving MORE, not just giving the necessary: more templates, more flexibility, more options.
 
 ### Get Support and Know-How
 
-Visit our open and friendly-written [Knowledge Base (Documentation)](https://app.optin.guru/docs/). Get easy step-by-step visual instructions, video tutorials and know-hows.
+Visit our open and friendly-written [Knowledge Base (Documentation)](https://app.convertful.com/docs/). Get easy step-by-step visual instructions, video tutorials and know-hows.
 
-Contact us on the [contact form](https://optin.guru/contact-form/) with your questions, technical issues or feature requests.
+Contact us on the [contact form](https://convertful.com/contact-form/) with your questions, technical issues or feature requests.
 
-Learn more about Optin.Guru [on our site](https://optin.guru/).
+Learn more about Convertful [on our site](https://convertful.com/).
 
 == Frequently Asked Questions ==
 
@@ -67,8 +67,8 @@ Back-end (editor): Edge, two latest versions of Chrome, Safari, FireFox and Oper
 == Changelog ==
 
 = 1.1 =
-* Compatibility with the updated Optin.Guru
-* Settings now page is quickly accessible froms plugin list
+* Compatibility with the updated Convertful
+* Settings page now is quickly accessible from plugins list
 
 = 1.0 =
 * Initial version.

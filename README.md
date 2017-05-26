@@ -1,2 +1,2 @@
 # og-wordpress
-Optin.Guru WordPress plugin
+Convertful WordPress plugin
