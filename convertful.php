@@ -39,6 +39,9 @@ if ( is_admin() ) {
 	require $conv_dir . 'functions/admin_pages.php';
 }
 
+// Shortcodes
+require $conv_dir . 'functions/shortcodes.php';
+
 function conv_enqueue_scripts() {
 	global $conv_domain, $conv_version;
 	wp_enqueue_script( 'convertful-api', $conv_domain . '/Convertful.js', array(), $conv_version, TRUE );
