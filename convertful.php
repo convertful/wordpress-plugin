@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: Convertful MailChimp Forms
- * Version: 1.1
+ * Version: 1.0
  * Plugin URI: https://convertful.com/
  * Description: Pop-ups, sideboxes, bars and other opt-in forms to find a relevant way into your visitor’s inbox. Works with MailChimp, ConvertKit, AWeber, GetResponse and 25+ other.
  * Author: Convertful
@@ -14,7 +14,7 @@
 // Global variables for plugin usage (global declaration is needed here for WP CLI compatibility)
 global $conv_file, $conv_dir, $conv_uri, $conv_version, $conv_domain;
 //$conv_domain = 'http://convertful.local';
-$conv_domain = 'https://dev.convertful.com';
+$conv_domain = 'https://app.convertful.com';
 $conv_file = __FILE__;
 $conv_dir = plugin_dir_path( __FILE__ );
 $conv_uri = plugins_url( '', __FILE__ );
