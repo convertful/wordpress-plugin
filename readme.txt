@@ -72,10 +72,10 @@ Back-end (editor): Edge, two latest versions of Chrome, Safari, FireFox and Oper
 == Screenshots ==
 
 1. Choose from dozens of amazing responsive templates
-2. Connect with a service from WP admin panel
-3. Simple connection
-4. Account creation
-5. Connection completed
+2. Edit your optin form quickly using simple visual builder
+3. See detailed analytics for your forms
+4. Dozens of integrations with popular services
+5. Easily connect your WordPress site
 
 == Changelog ==
 
