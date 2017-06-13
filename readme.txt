@@ -7,7 +7,7 @@ Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Pop-ups, sideboxes, bars and other opt-in forms to find a relevant way into your visitor’s inbox. Works with MailChimp, ConvertKit, AWeber, GetResponse and 25+ other.
+Convert visitors to subscribers with targeted pop-ups, sideboxes, bars and inlines. Works with MailChimp, ConvertKit, AWeber, GetResponse & others
 
 == Description ==
 
