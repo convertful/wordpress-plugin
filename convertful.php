@@ -93,6 +93,7 @@ register_uninstall_hook( $conv_file, 'conv_uninstall' );
 function conv_uninstall() {
 	// Options cleanup
 	foreach ( array( 'owner_id', 'site_id', 'website_id', 'token' ) as $option_name ) {
+		delete_option( 'optinguru_' . $option_name );
 		delete_option( 'convertful_' . $option_name );
 	}
 }
