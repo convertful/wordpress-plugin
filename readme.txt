@@ -7,7 +7,7 @@ Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Convert visitors to subscribers with targeted pop-ups, sideboxes, bars and inlines. Works with MailChimp, ConvertKit, AWeber, GetResponse & others
+Convert visitors to subscribers with targeted pop-ups, sideboxes, bars and inlines. Works not only with MailChimp
 
 == Description ==
 
@@ -15,7 +15,7 @@ Convert visitors to subscribers with targeted pop-ups, sideboxes, bars and inlin
 
 **Convertful is a web service for converting visitors into subscribers using behavior-based opt-in forms. Connect your WordPress website using this plugin and start growing your email list in 3 minutes with pop-ups, sideboxes, bars, fullscreens and in-lines.**
 
-[youtube https://www.youtube.com/watch?v=zn0Bog1fnbQ]
+[youtube https://www.youtube.com/watch?v=-jVOhAXqiDI]
 
 Unlimited access to ultimate lead capturing solution during the 14-day trial, including flexible form builder with an arsenal of stylish templates, precise behavior and targeting settings, and easy visual stats of your progress. Convertful does not affect website speed and has no limits for the number of visitors, forms and email integrations.
 
