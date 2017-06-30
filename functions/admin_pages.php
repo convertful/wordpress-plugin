@@ -2,7 +2,7 @@
 
 add_action( 'admin_menu', 'conv_add_admin_pages', 30 );
 function conv_add_admin_pages() {
-	add_submenu_page( 'tools.php', 'Convertful', 'Convertful', 'manage_options', 'og-settings', 'conv_settings_page' );
+	add_submenu_page( 'tools.php', 'Convertful', 'Convertful', 'manage_options', 'conv-settings', 'conv_settings_page' );
 }
 
 function conv_handle_return_to_endpoint() {
@@ -12,7 +12,7 @@ function conv_handle_return_to_endpoint() {
 		update_option( 'convertful_site_id', (int) $_GET['site_id'], FALSE );
 		update_option( 'convertful_token', $_GET['token'], FALSE );
 		// Redirect
-		echo '<script type="text/javascript">location.assign(\'' . admin_url( 'tools.php?page=og-settings' ) . '\')</script>';
+		echo '<script type="text/javascript">location.assign(\'' . admin_url( 'tools.php?page=conv-settings' ) . '\')</script>';
 	}
 }
 
@@ -20,7 +20,7 @@ function conv_handle_disconnect_click() {
 	if ( isset( $_GET['disconnect'] ) AND wp_verify_nonce( $_GET['disconnect'], 'conv_disconnect' ) ) {
 		conv_uninstall();
 		// Redirect
-		echo '<script type="text/javascript">location.assign(\'' . admin_url( 'tools.php?page=og-settings' ) . '\')</script>';
+		echo '<script type="text/javascript">location.assign(\'' . admin_url( 'tools.php?page=conv-settings' ) . '\')</script>';
 	}
 }
 
@@ -44,7 +44,7 @@ function conv_settings_page() {
 							with unique features and amazing pre-built form templates!</p>
 					</div>
 					<div class="conv-connect-card-footer">
-						<input type="hidden" name="endpoint" value="<?php echo esc_attr( admin_url( 'tools.php?page=og-settings' ) ) ?>">
+						<input type="hidden" name="endpoint" value="<?php echo esc_attr( admin_url( 'tools.php?page=conv-settings' ) ) ?>">
 						<input type="hidden" name="domain" value="<?php echo esc_attr( preg_replace( '~^https?:\/\/~', '', get_site_url() ) ) ?>">
 						<input type="hidden" name="site_name" value="<?php echo esc_attr( get_bloginfo( 'name' ) ) ?>">
 						<input type="hidden" name="platform" value="WordPress">
@@ -80,7 +80,7 @@ function conv_settings_page() {
 					</div>
 				</div>
 			</div>
-			<a href="<?php echo admin_url( 'tools.php?page=og-settings&disconnect=' . wp_create_nonce( 'conv_disconnect' ) ) ?>" class="conv-connect-disconnect">Disconnect site</a>
+			<a href="<?php echo admin_url( 'tools.php?page=conv-settings&disconnect=' . wp_create_nonce( 'conv_disconnect' ) ) ?>" class="conv-connect-disconnect">Disconnect site</a>
 		</div>
 		<?php
 	}

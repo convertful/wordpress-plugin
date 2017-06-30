@@ -58,7 +58,7 @@ function conv_script_loader_tag( $tag, $handle ) {
 
 add_action( 'admin_enqueue_scripts', 'conv_admin_enqueue_scripts' );
 function conv_admin_enqueue_scripts( $hook ) {
-	if ( $hook !== 'tools_page_og-settings' ) {
+	if ( $hook !== 'tools_page_conv-settings' ) {
 		return;
 	}
 
@@ -73,7 +73,7 @@ function conv_activated_plugin( $plugin ) {
 	if ( $plugin === plugin_basename( $conv_file ) ) {
 		$owner_id = get_option( 'convertful_owner_id' );
 		if ( $owner_id === FALSE ) {
-			wp_redirect( admin_url( 'tools.php?page=og-settings' ) );
+			wp_redirect( admin_url( 'tools.php?page=conv-settings' ) );
 			exit;
 		}
 	}
@@ -83,7 +83,7 @@ add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'conv_plugin_a
 function conv_plugin_action_links( $links ) {
 	return array_merge(
 		array(
-			'<a href="' . admin_url( 'tools.php?page=og-settings' ) . '">' . __( 'Settings' ) . '</a>',
+			'<a href="' . admin_url( 'tools.php?page=conv-settings' ) . '">' . __( 'Settings' ) . '</a>',
 		), $links
 	);
 }
