@@ -70,12 +70,21 @@ function conv_admin_enqueue_scripts( $hook ) {
 add_action( 'activated_plugin', 'conv_activated_plugin' );
 function conv_activated_plugin( $plugin ) {
 	global $conv_file;
-	if ( $plugin === plugin_basename( $conv_file ) ) {
-		$owner_id = get_option( 'convertful_owner_id' );
-		if ( $owner_id === FALSE ) {
-			wp_redirect( admin_url( 'tools.php?page=conv-settings' ) );
-			exit;
+	if ( $plugin !== plugin_basename( $conv_file ) ) {
+		return;
+	}
+	$owner_id = get_option( 'convertful_owner_id' );
+	if ( $owner_id === FALSE ) {
+		$redirect_location = admin_url( 'tools.php?page=conv-settings' );
+		if ( wp_doing_ajax() ) {
+			wp_send_json_success(
+				array(
+					'location' => $redirect_location,
+				)
+			);
 		}
+		wp_redirect( $redirect_location );
+		exit;
 	}
 }
 
