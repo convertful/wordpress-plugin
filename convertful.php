@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: Convertful MailChimp Forms
- * Version: 1.0
+ * Version: 1.1
  * Plugin URI: https://convertful.com/
  * Description: Convert visitors to subscribers with targeted pop-ups, sideboxes, bars and inlines. Works not only with MailChimp
  * Author: Convertful
