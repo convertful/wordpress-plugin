@@ -2,8 +2,8 @@
 Contributors: rsukhar
 Tags: optin, opt-in, mailchimp, popup, bar, slidein, subscribe, signup, form, email, marketing, lead, campaign
 Requires at least: 4.0
-Tested up to: 4.8
-Stable tag: 1.1
+Tested up to: 4.8.1
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,6 +78,9 @@ Back-end (editor): Edge, two latest versions of Chrome, Safari, FireFox and Oper
 5. Easily connect your WordPress site
 
 == Changelog ==
+
+= 1.2 =
+* Tested compatibility with WordPress 4.8.1
 
 = 1.1 =
 * Simplified migration from the obsolete "MailChimp Forms by Optin.Guru" plugin

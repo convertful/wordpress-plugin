@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: Convertful MailChimp Forms
- * Version: 1.1
+ * Version: 1.2
  * Plugin URI: https://convertful.com/
  * Description: Convert visitors to subscribers with targeted pop-ups, sideboxes, bars and inlines. Works not only with MailChimp
  * Author: Convertful
@@ -73,6 +73,16 @@ function conv_activated_plugin( $plugin ) {
 	if ( $plugin !== plugin_basename( $conv_file ) ) {
 		return;
 	}
+	// Taking into account promotional links
+	$ref_data = get_transient( 'convertful-ref' );
+	if ( $ref_data AND strpos( $ref_data, '|' ) !== FALSE ) {
+		$ref_data = explode( '|', $ref_data );
+		// Preventing violations with lifetime values
+		if ( time() - intval( $ref_data[1] ) < DAY_IN_SECONDS ) {
+			update_option( 'convertful_ref', $ref_data[0], FALSE );
+		}
+		delete_transient( 'convertful-ref' );
+	}
 	$owner_id = get_option( 'convertful_owner_id' );
 	if ( $owner_id === FALSE ) {
 		$redirect_location = admin_url( 'tools.php?page=conv-settings' );
@@ -101,7 +111,7 @@ function conv_plugin_action_links( $links ) {
 register_uninstall_hook( $conv_file, 'conv_uninstall' );
 function conv_uninstall() {
 	// Options cleanup
-	foreach ( array( 'owner_id', 'site_id', 'website_id', 'token' ) as $option_name ) {
+	foreach ( array( 'owner_id', 'site_id', 'website_id', 'token', 'ref' ) as $option_name ) {
 		delete_option( 'optinguru_' . $option_name );
 		delete_option( 'convertful_' . $option_name );
 	}

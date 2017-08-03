@@ -30,6 +30,10 @@ function conv_settings_page() {
 	conv_handle_disconnect_click();
 	$site_id = get_option( 'convertful_site_id' );
 	if ( $site_id === FALSE ) {
+		$connect_url = $conv_domain . '/oauth2/connect_site';
+		if ( $ref_username = get_option( 'convertful_ref' ) ) {
+			$connect_url .= '?ref=' . $ref_username;
+		}
 		?>
 		<div class="conv-connect">
 			<div class="conv-connect-logo">
@@ -37,7 +41,7 @@ function conv_settings_page() {
 			</div>
 			<div class="conv-connect-box">
 				<h1 class="conv-connect-header">Connect Site to Convertful</h1>
-				<form class="conv-connect-card" method="post" action="<?php echo esc_attr( $conv_domain . '/oauth2/connect_site' ) ?>">
+				<form class="conv-connect-card" method="post" action="<?php echo esc_attr( $connect_url ) ?>">
 					<div class="conv-connect-card-body">
 						<p>Please create a Convertful Account or connect to an existing Account.<br>
 							This will allow you to <strong>grow email lists easily</strong> using our top-notch builder
