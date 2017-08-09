@@ -2,8 +2,8 @@
 Contributors: rsukhar
 Tags: optin, opt-in, mailchimp, popup, bar, slidein, subscribe, signup, form, email, marketing, lead, campaign
 Requires at least: 4.0
-Tested up to: 4.8.1
-Stable tag: 1.2
+Tested up to: 4.8
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -11,11 +11,13 @@ Convert visitors to subscribers with targeted pop-ups, sideboxes, bars and inlin
 
 == Description ==
 
-### Converting Visitors Into Subscribers Fast, Without Annoying Them
+### Converting Visitors Into Leads Fast, Not Annoying Them
 
 **Convertful is a web service for converting visitors into subscribers using behavior-based opt-in forms. Connect your WordPress website using this plugin and start growing your email list in 3 minutes with pop-ups, sideboxes, bars, fullscreens and in-lines.**
 
-[youtube https://www.youtube.com/watch?v=-jVOhAXqiDI]
+[youtube https://www.youtube.com/watch?v=zn0Bog1fnbQ]
+
+Get Convertful Premium before August 20, 2017 for the best price of $15 per year and take your chance to extend it with the same special price for a year more!
 
 Unlimited access to ultimate lead capturing solution during the 14-day trial, including flexible form builder with an arsenal of stylish templates, precise behavior and targeting settings, and easy visual stats of your progress. Convertful does not affect website speed and has no limits for the number of visitors, forms and email integrations.
 
@@ -42,11 +44,11 @@ We created an opt-in form app that cures the main pain points you might have, fa
 * **Easy stats without Google Analytics** — We offer an easy way to view your funnel results without connecting to Google Analytics: see which form brought you subscribers, what was it conversion, how many visitors and impressions there were.
 * **All functions from the start** — We don’t limit you anywhere during the trial. Try the full barrage of functions that are seldom are only available for much higher prices.
 
-### Become a Premium user
+### Super Early Bird Plan — Until August 20, 2017
 
-Convertful offers you a two-week trial to try all the capabilities of convertful lead-capture technologies. After the trial we offer you to either become our feedback guru to extend your trial, or a fully-fledged Premium user for $15 per month. That sum really pays off when you see conversions and your email list growing.
+Get Convertful Premium before August 20, 2017 for the best price of $15 per year and take your chance to extend it with the same special price for a year more!
 
-Our Premium version is based on the principle of giving MORE, not just giving the necessary: more templates, more flexibility, more options.
+Convertful offers you a 14-days trial to try all the capabilities of convertful lead-capture technologies. That sum really pays off when you see conversions and your email list growing.
 
 ### Get Support and Know-How
 
