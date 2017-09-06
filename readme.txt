@@ -15,9 +15,9 @@ Convert visitors to subscribers with targeted pop-ups, sideboxes, bars and inlin
 
 **Convertful is a web service for converting visitors into subscribers using behavior-based opt-in forms. Connect your WordPress website using this plugin and start growing your email list in 3 minutes with pop-ups, sideboxes, bars, fullscreens and in-lines.**
 
-[youtube https://www.youtube.com/watch?v=zn0Bog1fnbQ]
+[youtube https://www.youtube.com/watch?v=-jVOhAXqiDI&nbsp=]
 
-Get Convertful Premium before August 20, 2017 for the best price of $15 per year and take your chance to extend it with the same special price for a year more!
+Get Convertful Premium now to get special Early Bird Plan for $29 per year!
 
 Unlimited access to ultimate lead capturing solution during the 14-day trial, including flexible form builder with an arsenal of stylish templates, precise behavior and targeting settings, and easy visual stats of your progress. Convertful does not affect website speed and has no limits for the number of visitors, forms and email integrations.
 
@@ -46,7 +46,7 @@ We created an opt-in form app that cures the main pain points you might have, fa
 
 ### Super Early Bird Plan — Until August 20, 2017
 
-Get Convertful Premium before August 20, 2017 for the best price of $15 per year and take your chance to extend it with the same special price for a year more!
+Get Convertful Premium now to get special Early Bird Plan for $29 per year!
 
 Convertful offers you a 14-days trial to try all the capabilities of convertful lead-capture technologies. That sum really pays off when you see conversions and your email list growing.
 
