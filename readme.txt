@@ -44,7 +44,7 @@ We created an opt-in form app that cures the main pain points you might have, fa
 * **Easy stats without Google Analytics** — We offer an easy way to view your funnel results without connecting to Google Analytics: see which form brought you subscribers, what was it conversion, how many visitors and impressions there were.
 * **All functions from the start** — We don’t limit you anywhere during the trial. Try the full barrage of functions that are seldom are only available for much higher prices.
 
-### Super Early Bird Plan — Until August 20, 2017
+### Early Bird Plan — Until January 15, 2018
 
 Get Convertful Premium now to get special Early Bird Plan for $29 per year!
 
