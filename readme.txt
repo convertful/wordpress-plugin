@@ -1,4 +1,4 @@
-=== Convertful MailChimp Forms ===
+=== Free MailChimp Sign-up Forms by Convertful ===
 Contributors: rsukhar
 Tags: optin, opt-in, mailchimp, popup, bar, slidein, subscribe, signup, form, email, marketing, lead, campaign
 Requires at least: 4.0
@@ -7,61 +7,66 @@ Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Convert visitors to subscribers with targeted pop-ups, sideboxes, bars and inlines. Works not only with MailChimp
+Acquire leads using smart targeted sign-up forms. Works with MailChimp and all other major email services
 
 == Description ==
 
-### Converting Visitors Into Leads Fast, Not Annoying Them
+### Free Tools to Engage and Convert Site Visitors
 
-**Convertful is a web service for converting visitors into subscribers using behavior-based opt-in forms. Connect your WordPress website using this plugin and start growing your email list in 3 minutes with pop-ups, sideboxes, bars, fullscreens and in-lines.**
+**Convertful is a web service for converting visitors into subscribers using behavior-based opt-in forms. Connect your WordPress website using this plugin and start growing your email list in 3 minutes with pop-ups, scroll boxes, floating bars, welcome screens,
+inlines and call-to-actions**
 
-[youtube https://www.youtube.com/watch?v=-jVOhAXqiDI&nbsp=]
+[youtube https://www.youtube.com/watch?v=Fqs-SuUUbx8]
 
-Get Convertful Premium now to get special Early Bird Plan for $29 per year!
+Try it free! Start with our free plan, including flexible form creator with 50 stylish templates, precise behavior and targeting settings, easy visual stats of your progress, and integration with all popular e-marketing services.
 
-Unlimited access to ultimate lead capturing solution during the 14-day trial, including flexible form builder with an arsenal of stylish templates, precise behavior and targeting settings, and easy visual stats of your progress. Convertful does not affect website speed and has no limits for the number of visitors, forms and email integrations.
+### The Only Toolkit With Free:
+
+* 50 Beautiful Forms Templates
+* All Modern Sign-up Form Types
+* Responsive Sign-up Forms Creator
+* Lead Recovery to Get ~4% More Subscribers
 
 ### Convertful Growth of Your Subscriber Base
 
-Capture leads with different subscribe, signup, newsletter and download forms connected with your MailChimp, ConvertKit, AWeber, GetResponse and 25+ other email services accounts. We have a [support portal with an “it’s done” A-team](https://app.convertful.com/tickets/?utm_source=integration&utm_medium=plugin-link&utm_campaign=wordpress-plugin) and provide [clear step-by-step instructions.](https://app.convertful.com/docs/?utm_source=integration&utm_medium=plugin-link&utm_campaign=wordpress-plugin)
+Capture leads with different subscribe, signup, newsletter and download forms connected with your MailChimp, ConvertKit, AWeber, GetResponse and 25+ other email services accounts. We have a [support portal with an “it’s done” A-team](https://app.convertful.com/tickets/?utm_source=integration&utm_medium=wordpress&utm_campaign=wordpress-plugin) and provide [clear step-by-step instructions.](https://app.convertful.com/docs/?utm_source=integration&utm_medium=wordpress&utm_campaign=wordpress-plugin)
 
 From the creators of Impreza WordPress Theme and SiteOrigin CodeLights Plugin.
 
 > PLEASE NOTE:
-> [**Convertful App**](https://app.convertful.com/?utm_source=integration&utm_medium=plugin-link&utm_campaign=wordpress-plugin)
-> This plugin ONLY works as an integration interface to our full-featured Convertful web service. A Convertful account is needed to activate the plugin (you can create one through the plugin interface or [click here to create your account).](https://app.convertful.com/sign_up/?utm_source=integration&utm_medium=plugin-link&utm_campaign=wordpress-plugin)
+> [**Convertful App**](https://app.convertful.com/?utm_source=integration&utm_medium=wordpress&utm_campaign=wordpress-plugin)
+> This plugin ONLY works as an integration interface to our full-featured Convertful web service. A Convertful account is needed to activate the plugin (you can create one through the plugin interface or [click here to create your account).](https://app.convertful.com/sign_up/?utm_source=integration&utm_medium=wordpress)
 
-### Unlimited: Customizing, Triggering, A/B-testing, Websites and Email Services
+### EVER-GROWING ARSENAL OF FEATURES AND TOOLS
 
 We created an opt-in form app that cures the main pain points you might have, fast:
 
-* **Flexible form builder** — We offer templates that you may customize the way you like: changing colors, setting images, fonts, positioning elements.
-* **Design and templates variety** — Design quality and diversity are one of our key principles. Use unique in-lines, pop-ups, sideboxes (slideins), fullscreens and floating bars.
+* **Flexible form creator** — We offer a flexible form creator allowing to customize any form element you like: layout, content, colors, positioning, and many more.
+* **Design and templates variety** — Design quality and diversity are one of our key principles. Use unique in-lines, pop-ups, sideboxes (slideins), fullscreens and floating bars. Use our library of 50+ modern form templates to create the form that suits your site design the best.
 * **Right audience, right time, right place** — Flexibly set your forms’ behavior: when and where to show, and when NOT to show them. Convertful forms will never annoy your visitors.
 * **Returning and leaving visitors** — Target returning and leaving leads, target your audiences exactly by source and time — while existing subscribers will not be distracted by forms.
 * **Responsive forms** — All opt-in forms are mobile-friendly. Period. Your visitors will never fall enraged by inconvenient mobile experience.
-* **A/B-testing** — Test your [lead magnets](https://app.convertful.com/docs/lead-magnets/?utm_source=integration&utm_medium=plugin-link&utm_campaign=wordpress-plugin), understand your audience’s preferences and become ultimately convertful.
+* **A/B-testing** — Test your [lead magnets](https://app.convertful.com/docs/lead-magnets/?utm_source=integration&utm_medium=wordpress&utm_campaign=wordpress-plugin), understand your audience’s preferences and become ultimately convertful.
 * **Easy stats without Google Analytics** — We offer an easy way to view your funnel results without connecting to Google Analytics: see which form brought you subscribers, what was it conversion, how many visitors and impressions there were.
-* **All functions from the start** — We don’t limit you anywhere during the trial. Try the full barrage of functions that are seldom are only available for much higher prices.
 
-### Early Bird Plan — Until January 15, 2018
+### Early Bird Premium Plan — Until February 11, 12 PM GMT
 
 Get Convertful Premium now to get special Early Bird Plan for $29 per year!
 
-Convertful offers you a 14-days trial to try all the capabilities of convertful lead-capture technologies. That sum really pays off when you see conversions and your email list growing.
+A time-limited offer of the fully functional premium subscription for the amazing price!
 
 ### Get Support and Know-How
 
-Visit our open and friendly-written [Knowledge Base (Documentation)](https://app.convertful.com/docs/?utm_source=integration&utm_medium=plugin-link&utm_campaign=wordpress-plugin). Get easy step-by-step visual instructions, video tutorials and know-hows.
+Visit our open and friendly-written [Knowledge Base (Documentation)](https://app.convertful.com/docs/?utm_source=integration&utm_medium=wordpress&utm_campaign=wordpress-plugin). Get easy step-by-step visual instructions, video tutorials and know-hows.
 
-Contact us on the [contact form](https://convertful.com/contact-form/?utm_source=integration&utm_medium=plugin-link&utm_campaign=wordpress-plugin) with your questions, or get your technical issues and feature requests done on our [support portal.](https://app.convertful
-.com/tickets/?utm_source=integration&utm_medium=plugin-link&utm_campaign=wordpress-plugin)
+Contact us on the [contact form](https://convertful.com/contact-form/?utm_source=integration&utm_medium=wordpress&utm_campaign=wordpress-plugin) with your questions, or get your technical issues and feature requests done on our [support portal.](https://app.convertful
+.com/tickets/?utm_source=integration&utm_medium=wordpress&utm_campaign=wordpress-plugin)
 
-We would be happy to see you on [Convertful website](https://convertful.com/?utm_source=integration&utm_medium=plugin-link&utm_campaign=wordpress-plugin).
+We would be happy to see you on [Convertful website](https://convertful.com/?utm_source=integration&utm_medium=wordpress&utm_campaign=wordpress-plugin).
 
 > PLEASE NOTE:
-> [**Convertful App**](https://app.convertful.com/?utm_source=integration&utm_medium=plugin-link&utm_campaign=wordpress-plugin)
-> This plugin ONLY works as an integration interface to our full-featured Convertful web service. A Convertful account is needed to activate the plugin (you can create one through the plugin interface or [click here to create your account).](https://app.convertful.com/sign_up/?utm_source=integration&utm_medium=plugin-link&utm_campaign=wordpress-plugin)
+> [**Convertful App**](https://app.convertful.com/?utm_source=integration&utm_medium=wordpress&utm_campaign=wordpress-plugin)
+> This plugin ONLY works as an integration interface to our full-featured Convertful web service. A Convertful account is needed to activate the plugin (you can create one through the plugin interface or [click here to create your account).](https://app.convertful.com/sign_up/?utm_source=integration&utm_medium=wordpress&utm_campaign=wordpress-plugin)
 
 
 

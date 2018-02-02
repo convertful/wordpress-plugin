@@ -80,7 +80,6 @@ function conv_settings_page() {
 						<a class="conv-btn action_create" href="<?php echo esc_attr( $conv_domain . '/sites/' . $site_id . '/widgets/create/' ) ?>" target="_blank">
 							Create New Optin
 						</a>
-						<a href="https://convertful.com/premium/" class="conv-btn-premium" target="_blank">Learn about Premium features</a>
 					</div>
 				</div>
 			</div>
