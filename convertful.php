@@ -116,3 +116,53 @@ function conv_uninstall() {
 		delete_option( 'convertful_' . $option_name );
 	}
 }
+
+
+add_action('wp_head','conv_variables');
+function conv_variables()
+{
+	$tags = array();
+	foreach (get_the_tags() as $tag){
+		$tags[$tag->slug] = $tag->name;
+	}
+	$categories = array();
+	foreach (get_the_category() as $category){
+		$categories[$category->slug] = $category->name;
+	}
+	$user_meta = wp_get_current_user();
+	$variables = array(
+		'url' => admin_url('admin-ajax.php'),
+		'tags' => $tags,
+		'categories' => $categories,
+		'user_roles' => ($user_meta instanceof WP_User)? $user_meta->roles: [],
+		'type' => get_post_type(),
+	);
+	echo '<script type="text/javascript">window.conv_page_vars='.json_encode($variables).';</script>';
+}
+
+if( wp_doing_ajax() OR defined('DOING_AJAX') ){
+	add_action('wp_ajax_conv_get_info', 'conv_get_info');
+	add_action('wp_ajax_nopriv_conv_get_info', 'conv_get_info');
+
+	function conv_get_info(){
+
+		$tags = array();
+		foreach (get_tags() as $tag){
+			$tags[$tag->slug] = $tag->name;
+		}
+
+		$categories = array();
+		foreach (get_categories() as $category){
+			$categories[$category->slug] = $category->name;
+		}
+
+		wp_send_json_success([
+			'tags' => $tags,
+			'categories' => $categories,
+		]);
+
+		wp_die();
+	}
+}
+
+

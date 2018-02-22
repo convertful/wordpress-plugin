@@ -48,6 +48,7 @@ function conv_settings_page() {
 							with unique features and amazing pre-built form templates!</p>
 					</div>
 					<div class="conv-connect-card-footer">
+						<input type="hidden" name="ajax_url" value="<?php echo esc_attr( admin_url('admin-ajax.php') ) ?>">
 						<input type="hidden" name="endpoint" value="<?php echo esc_attr( admin_url( 'tools.php?page=conv-settings' ) ) ?>">
 						<input type="hidden" name="domain" value="<?php echo esc_attr( preg_replace( '~^https?:\/\/~', '', get_site_url() ) ) ?>">
 						<input type="hidden" name="site_name" value="<?php echo esc_attr( get_bloginfo( 'name' ) ) ?>">
