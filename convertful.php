@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: Convertful MailChimp Forms
- * Version: 1.2
+ * Version: 1.3
  * Plugin URI: https://convertful.com/
  * Description: Acquire leads using smart targeted sign-up forms. Works with MailChimp and all other major email services
  * Author: Convertful

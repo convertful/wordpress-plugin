@@ -3,7 +3,7 @@ Contributors: rsukhar
 Tags: optin, opt-in, mailchimp, popup, bar, slidein, subscribe, signup, form, email, marketing, lead, campaign
 Requires at least: 4.0
 Tested up to: 4.8
-Stable tag: 1.1
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
