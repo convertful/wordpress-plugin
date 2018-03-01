@@ -32,6 +32,7 @@ function conv_init() {
 	if ( ! is_admin() AND $owner_id !== FALSE ) {
 		add_action( 'wp_enqueue_scripts', 'conv_enqueue_scripts' );
 		add_filter( 'script_loader_tag', 'conv_script_loader_tag', 10, 2 );
+		add_filter( "the_content", "conv_after_post_content" );
 	}
 }
 
@@ -96,6 +97,13 @@ function conv_activated_plugin( $plugin ) {
 		wp_redirect( $redirect_location );
 		exit;
 	}
+}
+
+function conv_after_post_content($content){
+	if (is_single()) {
+		$content .= '<div class="conv-place conv-place_after_post"></div>';
+	}
+	return $content;
 }
 
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'conv_plugin_action_links' );
