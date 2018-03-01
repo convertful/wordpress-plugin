@@ -122,11 +122,12 @@ add_action('wp_head','conv_variables');
 function conv_variables()
 {
 	$tags = array();
-	foreach (get_the_tags() as $tag){
+
+	foreach (get_the_tags()?:array() as $tag){
 		$tags[$tag->slug] = $tag->name;
 	}
 	$categories = array();
-	foreach (get_the_category() as $category){
+	foreach (get_the_category()?:array() as $category){
 		$categories[$category->slug] = $category->name;
 	}
 	$user_meta = wp_get_current_user();
