@@ -2,7 +2,7 @@
 Contributors: rsukhar
 Tags: optin, opt-in, mailchimp, popup, bar, slidein, subscribe, signup, form, email, marketing, lead, campaign
 Requires at least: 4.0
-Tested up to: 4.8
+Tested up to: 4.9.4
 Stable tag: 1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -49,20 +49,14 @@ We created an opt-in form app that cures the main pain points you might have, fa
 * **A/B-testing** — Test your [lead magnets](https://app.convertful.com/docs/lead-magnets/?utm_source=integration&utm_medium=wordpress&utm_campaign=wordpress-plugin), understand your audience’s preferences and become ultimately convertful.
 * **Easy stats without Google Analytics** — We offer an easy way to view your funnel results without connecting to Google Analytics: see which form brought you subscribers, what was it conversion, how many visitors and impressions there were.
 
-### Early Bird Premium Plan — Until February 11, 12 PM GMT
-
-Get Convertful Premium now to get special Early Bird Plan for $29 per year!
-
-A time-limited offer of the fully functional premium subscription for the amazing price!
-
 ### Get Support and Know-How
 
 Visit our open and friendly-written [Knowledge Base (Documentation)](https://app.convertful.com/docs/?utm_source=integration&utm_medium=wordpress&utm_campaign=wordpress-plugin). Get easy step-by-step visual instructions, video tutorials and know-hows.
 
-Contact us on the [contact form](https://convertful.com/contact-form/?utm_source=integration&utm_medium=wordpress&utm_campaign=wordpress-plugin) with your questions, or get your technical issues and feature requests done on our [support portal.](https://app.convertful
-.com/tickets/?utm_source=integration&utm_medium=wordpress&utm_campaign=wordpress-plugin)
+Contact us on the [contact form](https://convertful.com/contact-form/?utm_source=integration&utm_medium=wordpress&utm_campaign=wordpress-plugin) with your questions, or get your technical issues and feature requests done on our [support portal](https://app.convertful
+.com/tickets/?utm_source=integration&utm_medium=wordpress&utm_campaign=wordpress-plugin).
 
-We would be happy to see you on [Convertful website](https://convertful.com/?utm_source=integration&utm_medium=wordpress&utm_campaign=wordpress-plugin).
+We would be happy to see you on the [Convertful website](https://convertful.com/?utm_source=integration&utm_medium=wordpress&utm_campaign=wordpress-plugin).
 
 > PLEASE NOTE:
 > [**Convertful App**](https://app.convertful.com/?utm_source=integration&utm_medium=wordpress&utm_campaign=wordpress-plugin)
@@ -74,7 +68,7 @@ We would be happy to see you on [Convertful website](https://convertful.com/?utm
 
 = Which browsers does the plugin support? =
 
-Front-end: IE10+; two latest versions of Chrome, Safari, FireFox and Opera.
+Front-end: IE11+; two latest versions of Chrome, Safari, FireFox and Opera.
 Back-end (editor): Edge, two latest versions of Chrome, Safari, FireFox and Opera.
 
 == Screenshots ==
@@ -86,6 +80,13 @@ Back-end (editor): Edge, two latest versions of Chrome, Safari, FireFox and Oper
 5. Easily connect your WordPress site
 
 == Changelog ==
+
+= 1.3 =
+* Added ability to target widgets on specific post tags and categories
+* Added ability to show widgets right after a post text
+
+= 1.2 =
+* Tested compatibility with WordPress 4.8.1
 
 = 1.1 =
 * Simplified migration from the obsolete "MailChimp Forms by Optin.Guru" plugin

@@ -32,7 +32,7 @@ function conv_init() {
 	if ( ! is_admin() AND $owner_id !== FALSE ) {
 		add_action( 'wp_enqueue_scripts', 'conv_enqueue_scripts' );
 		add_filter( 'script_loader_tag', 'conv_script_loader_tag', 10, 2 );
-		add_filter( "the_content", "conv_after_post_content" );
+		add_filter( 'the_content', 'conv_after_post_content' );
 	}
 }
 
@@ -99,10 +99,11 @@ function conv_activated_plugin( $plugin ) {
 	}
 }
 
-function conv_after_post_content($content){
-	if (is_single()) {
+function conv_after_post_content( $content ) {
+	if ( is_single() ) {
 		$content .= '<div class="conv-place conv-place_after_post"></div>';
 	}
+
 	return $content;
 }
 
@@ -126,51 +127,58 @@ function conv_uninstall() {
 }
 
 
-add_action('wp_head','conv_variables');
-function conv_variables()
-{
-	$tags = array();
+add_action( 'wp_head', 'conv_variables' );
+function conv_variables() {
 
-	foreach (get_the_tags()?:array() as $tag){
-		$tags[$tag->slug] = $tag->name;
+	$tags = array();
+	$the_tags = get_the_tags();
+	if ( is_array( $the_tags ) ) {
+		foreach ( $the_tags as $tag ) {
+			$tags[ $tag->slug ] = $tag->name;
+		}
 	}
+
 	$categories = array();
-	foreach (get_the_category()?:array() as $category){
-		$categories[$category->slug] = $category->name;
+	$the_categories = get_the_category();
+	if ( is_array($the_categories)) {
+		foreach ( $the_categories as $category ) {
+			$categories[ $category->slug ] = $category->name;
+		}
 	}
+
 	$user_meta = wp_get_current_user();
 	$variables = array(
-		'url' => admin_url('admin-ajax.php'),
+		'url' => admin_url( 'admin-ajax.php' ),
 		'tags' => $tags,
 		'categories' => $categories,
-		'user_roles' => ($user_meta instanceof WP_User)? $user_meta->roles: [],
+		'user_roles' => ( $user_meta instanceof WP_User ) ? $user_meta->roles : [],
 		'type' => get_post_type(),
 	);
-	echo '<script type="text/javascript">window.conv_page_vars='.json_encode($variables).';</script>';
+	echo '<script type="text/javascript">window.conv_page_vars=' . json_encode( $variables ) . ';</script>';
 }
 
-if( wp_doing_ajax() OR defined('DOING_AJAX') ){
-	add_action('wp_ajax_conv_get_info', 'conv_get_info');
-	add_action('wp_ajax_nopriv_conv_get_info', 'conv_get_info');
+if ( wp_doing_ajax() OR defined( 'DOING_AJAX' ) ) {
 
-	function conv_get_info(){
+	add_action( 'wp_ajax_conv_get_info', 'conv_get_info' );
+	add_action( 'wp_ajax_nopriv_conv_get_info', 'conv_get_info' );
+	function conv_get_info() {
 
 		$tags = array();
-		foreach (get_tags() as $tag){
-			$tags[$tag->slug] = $tag->name;
+		foreach ( get_tags() as $tag ) {
+			$tags[ $tag->slug ] = $tag->name;
 		}
 
 		$categories = array();
-		foreach (get_categories() as $category){
-			$categories[$category->slug] = $category->name;
+		foreach ( get_categories() as $category ) {
+			$categories[ $category->slug ] = $category->name;
 		}
 
-		wp_send_json_success([
-			'tags' => $tags,
-			'categories' => $categories,
-		]);
-
-		wp_die();
+		wp_send_json_success(
+			array(
+				'tags' => $tags,
+				'categories' => $categories,
+			)
+		);
 	}
 }
 
