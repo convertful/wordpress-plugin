@@ -154,7 +154,8 @@ function conv_variables() {
 		'user_roles' => ( $user_meta instanceof WP_User ) ? $user_meta->roles : [],
 		'type' => get_post_type(),
 	);
-	echo '<script type="text/javascript">window.conv_page_vars=' . json_encode( $variables ) . ';</script>';
+
+	wp_localize_script( 'conv_page_vars', 'conv_page_vars', $variables );
 }
 
 if ( wp_doing_ajax() OR defined( 'DOING_AJAX' ) ) {
