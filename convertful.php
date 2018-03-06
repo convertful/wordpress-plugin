@@ -151,11 +151,11 @@ function conv_variables() {
 		'url' => admin_url( 'admin-ajax.php' ),
 		'tags' => $tags,
 		'categories' => $categories,
-		'user_roles' => ( $user_meta instanceof WP_User ) ? $user_meta->roles : [],
+		'user_roles' => ( $user_meta instanceof WP_User ) ? $user_meta->roles : array(),
 		'type' => get_post_type(),
 	);
 
-	wp_localize_script( 'conv_page_vars', 'conv_page_vars', $variables );
+	echo '<script type="text/javascript">window.conv_page_vars=' . json_encode( $variables ) . ';</script>';
 }
 
 if ( wp_doing_ajax() OR defined( 'DOING_AJAX' ) ) {
