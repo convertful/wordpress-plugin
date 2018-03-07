@@ -158,7 +158,7 @@ function conv_variables() {
 	echo '<script type="text/javascript">window.conv_page_vars=' . json_encode( $variables ) . ';</script>';
 }
 
-if ( wp_doing_ajax() OR defined( 'DOING_AJAX' ) ) {
+if ( defined( 'DOING_AJAX' ) ) {
 
 	add_action( 'wp_ajax_conv_get_info', 'conv_get_info' );
 	add_action( 'wp_ajax_nopriv_conv_get_info', 'conv_get_info' );
