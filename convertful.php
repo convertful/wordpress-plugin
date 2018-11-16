@@ -1,10 +1,10 @@
 <?php defined( 'ABSPATH' ) OR die( 'This script cannot be accessed directly.' );
 
 /**
- * Plugin Name: Convertful MailChimp Forms
+ * Plugin Name: Convertful - Your Ultimate On-Site Conversion Tool
  * Version: 1.3
  * Plugin URI: https://convertful.com/
- * Description: Acquire leads using smart targeted sign-up forms. Works with MailChimp and all other major email services
+ * Description: All the modern on-site conversion solutions, natively integrates with all modern Email Marketing Platforms.
  * Author: Convertful
  * License: GPLv2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -158,7 +158,7 @@ function conv_variables() {
 	echo '<script type="text/javascript">window.conv_page_vars=' . json_encode( $variables ) . ';</script>';
 }
 
-if ( defined( 'DOING_AJAX' ) ) {
+if ( wp_doing_ajax() OR defined( 'DOING_AJAX' ) ) {
 
 	add_action( 'wp_ajax_conv_get_info', 'conv_get_info' );
 	add_action( 'wp_ajax_nopriv_conv_get_info', 'conv_get_info' );
