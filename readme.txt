@@ -3,7 +3,7 @@ Contributors: rsukhar
 Tags: optin, opt-in, mailchimp, popup, bar, slidein, subscribe, signup, form, email, marketing, lead, campaign
 Requires at least: 4.0
 Tested up to: 5.0.0
-Stable tag: 1.3
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,7 +33,7 @@ Start with the FREE plan, that already includes:
 * **Inline Widgets** that can be added to sidebars, after posts or to any other place of a page
 * **Scroll Boxes** which are shown when a visitor scrolls some part of your blog post
 * **Welcome Mats** that are shown to new visitors and help to focus on the offer
-* **Yes/No Forms** which break the standard form pattern, and increase converson
+* **Yes/No Forms** which break the standard form pattern, and increase conversion
 * **Content Upgrades** which offer additional content for a blog post
 * **Deadline Funnels** that display countdown timers (including evergreen countdown timers)
 * **Content Lockers** that request a visitor to optin in order to read an article
@@ -63,14 +63,12 @@ We created an opt-in form app that cures the main pain points you might have, fa
 * **Responsive forms** — All opt-in forms are mobile-friendly. Period. Your visitors will never fall enraged by inconvenient mobile experience.
 * **A/B-testing** — Test your lead magnets, understand your audience’s preferences and become ultimately convertful.
 * **Easy stats without Google Analytics** — We offer an easy way to view your funnel results without connecting to Google Analytics: see which form brought you subscribers, what was it conversion, how many visitors and impressions there were.
-* **Great alternative to** OptinMonster, Bloom, MailMunch, Icegram, Hustle, Popup Maker, Poptin, Jackmail, Mailchimp Popup, Sumo (SumoMe), GetSiteControl, MailOptin, Sleeknote, ConvertFlow, Optimonk, Supsystic, Yeloni, Hello bar, PopBox, Thrive Leads, AddThis, Sharethis, Shareaholic, Boxzilla, gravity forms, WPForms, Popupally, Popup Builder, WP Subscribe, Ninja Popups, Ninja Forms, Fancybox, wBounce etc.
 
 ### Get Support and Know-How
 
 Visit our open and friendly-written [Knowledge Base (Documentation)](https://app.convertful.com/docs/?utm_medium=plugins&utm_source=wordpress-plugin). Get easy step-by-step visual instructions, video tutorials and know-hows.
 
-Contact us on the [contact form](https://convertful.com/contact-form/?utm_medium=plugins&utm_source=wordpress-plugin) with your questions, or get your technical issues and feature requests done on our [support portal](https://app.convertful
-.com/tickets/?utm_source=integration&utm_medium=wordpress&utm_campaign=wordpress-plugin).
+Contact us on the [contact form](https://convertful.com/contact-form/?utm_medium=plugins&utm_source=wordpress-plugin) with your questions, or get your technical issues and feature requests done on our [support portal](https://app.convertful.com/tickets/?utm_source=integration&utm_medium=wordpress&utm_campaign=wordpress-plugin) .
 
 We would be happy to see you on the [Convertful website](https://convertful.com/?utm_medium=plugins&utm_source=wordpress-plugin).
 
@@ -93,6 +91,9 @@ Back-end (editor): Edge, two latest versions of Chrome, Safari, FireFox and Oper
 5. Easily connect your WordPress site
 
 == Changelog ==
+
+= 1.4 =
+* Tested compatibility with WordPress 5.0
 
 = 1.3 =
 * Added ability to target widgets on specific post tags and categories
