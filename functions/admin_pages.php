@@ -30,10 +30,13 @@ function conv_settings_page() {
 	conv_handle_disconnect_click();
 	$site_id = get_option( 'convertful_site_id' );
 	if ( $site_id === FALSE ) {
-		$connect_url = $conv_domain . '/oauth2/connect_site';
+		$connect_url = $conv_domain . '/sites/authorize/WordPressPlugin/';
 		if ( $ref_username = get_option( 'convertful_ref' ) ) {
 			$connect_url .= '?ref=' . $ref_username;
 		}
+		// Generating access token to use it to authenticate requests
+		$access_token = wp_generate_password( 32, false );
+		update_option( 'convertful_token', $access_token, FALSE );
 		?>
 		<div class="conv-connect">
 			<div class="conv-connect-logo">
@@ -48,12 +51,12 @@ function conv_settings_page() {
 							with unique features and amazing pre-built form templates!</p>
 					</div>
 					<div class="conv-connect-card-footer">
-						<input type="hidden" name="ajax_url" value="<?php echo esc_attr( admin_url('admin-ajax.php') ) ?>">
-						<input type="hidden" name="endpoint" value="<?php echo esc_attr( admin_url( 'tools.php?page=conv-settings' ) ) ?>">
 						<input type="hidden" name="domain" value="<?php echo esc_attr( preg_replace( '~^https?:\/\/~', '', get_site_url() ) ) ?>">
-						<input type="hidden" name="site_name" value="<?php echo esc_attr( get_bloginfo( 'name' ) ) ?>">
-						<input type="hidden" name="platform" value="WordPress">
-						<input type="hidden" name="_nonce" value="<?php echo esc_attr( wp_create_nonce( 'conv_connect' ) ) ?>">
+
+						<input type="hidden" name="credentials[index_page_url]" value="<?php echo esc_attr( get_home_url() ) ?>">
+						<input type="hidden" name="credentials[ajax_url]" value="<?php echo esc_attr( admin_url('admin-ajax.php') ) ?>">
+						<input type="hidden" name="credentials[access_token]" value="<?php echo esc_attr( $access_token ) ?>">
+
 						<button class="conv-btn action_connect">
 							Connect to Convertful
 						</button>

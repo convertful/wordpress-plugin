@@ -46,6 +46,31 @@ require $conv_dir . 'functions/shortcodes.php';
 function conv_enqueue_scripts() {
 	global $conv_domain, $conv_version;
 	wp_enqueue_script( 'convertful-api', $conv_domain . '/Convertful.js', array(), $conv_version, TRUE );
+
+	$tags = array();
+	$the_tags = get_the_tags();
+	if ( is_array( $the_tags ) ) {
+		foreach ( $the_tags as $tag ) {
+			$tags[] = $tag->slug;
+		}
+	}
+
+	$categories = array();
+	$the_categories = get_the_category();
+	if ( is_array($the_categories)) {
+		foreach ( $the_categories as $category ) {
+			$categories[] = $category->slug;
+		}
+	}
+
+	$user_meta = wp_get_current_user();
+
+	wp_localize_script( 'convertful-api', 'convPlatformVars', array(
+		'postType' => get_post_type(),
+		'categories' => $categories,
+		'tags' => $tags,
+		'userRoles' => ( $user_meta instanceof WP_User ) ? $user_meta->roles : array( 'guest' ),
+	) );
 }
 
 function conv_script_loader_tag( $tag, $handle ) {
@@ -126,43 +151,17 @@ function conv_uninstall() {
 	}
 }
 
-
-add_action( 'wp_head', 'conv_variables' );
-function conv_variables() {
-
-	$tags = array();
-	$the_tags = get_the_tags();
-	if ( is_array( $the_tags ) ) {
-		foreach ( $the_tags as $tag ) {
-			$tags[ $tag->slug ] = $tag->name;
-		}
-	}
-
-	$categories = array();
-	$the_categories = get_the_category();
-	if ( is_array($the_categories)) {
-		foreach ( $the_categories as $category ) {
-			$categories[ $category->slug ] = $category->name;
-		}
-	}
-
-	$user_meta = wp_get_current_user();
-	$variables = array(
-		'url' => admin_url( 'admin-ajax.php' ),
-		'tags' => $tags,
-		'categories' => $categories,
-		'user_roles' => ( $user_meta instanceof WP_User ) ? $user_meta->roles : array(),
-		'type' => get_post_type(),
-	);
-
-	echo '<script type="text/javascript">window.conv_page_vars=' . json_encode( $variables ) . ';</script>';
-}
-
 if ( wp_doing_ajax() OR defined( 'DOING_AJAX' ) ) {
 
 	add_action( 'wp_ajax_conv_get_info', 'conv_get_info' );
 	add_action( 'wp_ajax_nopriv_conv_get_info', 'conv_get_info' );
 	function conv_get_info() {
+
+		if ( $_POST['access_token'] !== get_option( 'convertful_token' )) {
+			wp_send_json_error( array(
+				'access_token' => 'Wrong access token',
+			) );
+		}
 
 		$tags = array();
 		foreach ( get_tags() as $tag ) {
@@ -174,13 +173,59 @@ if ( wp_doing_ajax() OR defined( 'DOING_AJAX' ) ) {
 			$categories[ $category->slug ] = $category->name;
 		}
 
-		wp_send_json_success(
-			array(
-				'tags' => $tags,
-				'categories' => $categories,
-			)
+		$post_types = array();
+		foreach ( get_post_types( array( 'public' => TRUE ), 'objects' ) as $post_type ) {
+			$post_type_name = isset($post_type->name) ? $post_type->name : NULL;
+			$post_type_title = (isset($post_type->labels) AND isset($post_type->labels->singular_name)) ? $post_type->labels->singular_name : $post_type['name'];
+			if ($post_type_name AND $post_type_title)
+			{
+				$post_types[ $post_type_name ] = $post_type_title;
+			}
+		}
+
+		global $wp_roles;
+		$user_roles = array();
+		foreach ( apply_filters('editable_roles', $wp_roles->roles) as $user_role_name => $user_role ) {
+			$user_roles[ $user_role_name ] = isset($user_role['name']) ? $user_role['name'] : $user_role_name;
+		}
+		$user_roles['guest'] = 'Guest (Unauthenticated)';
+
+		$result = array(
+			'tags' => $tags,
+			'categories' => $categories,
+			'post_types' => $post_types,
+			'user_roles' => $user_roles,
 		);
+
+		wp_send_json_success($result);
 	}
+
+
+	add_action( 'wp_ajax_conv_complete_authorization', 'conv_complete_authorization' );
+	add_action( 'wp_ajax_nopriv_conv_complete_authorization', 'conv_complete_authorization' );
+	function conv_complete_authorization() {
+
+		if ( $_POST['access_token'] !== get_option( 'convertful_token' )) {
+			wp_send_json_error( array(
+				'access_token' => 'Wrong access token',
+			) );
+		}
+
+		foreach ( array( 'owner_id', 'site_id' ) as $key ) {
+			if ( ! isset( $_POST[ $key ] ) OR empty( $_POST[ $key ] ) ) {
+				wp_send_json_error( array(
+					$key => 'Wrong parameters for authorization (owner_id or site_id missing)',
+				) );
+			}
+		}
+
+		update_option( 'convertful_owner_id', (int) $_POST['owner_id'], TRUE );
+		update_option( 'convertful_site_id', (int) $_POST['site_id'], FALSE );
+
+		wp_send_json_success();
+	}
+
+
 }
 
 
