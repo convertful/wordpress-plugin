@@ -69,7 +69,7 @@ function conv_enqueue_scripts() {
 		'postType' => get_post_type(),
 		'categories' => $categories,
 		'tags' => $tags,
-		'userRoles' => ( $user_meta instanceof WP_User ) ? $user_meta->roles : array( 'guest' ),
+		'userRoles' => ( $user_meta instanceof WP_User AND ! empty($user_meta->roles) ) ? $user_meta->roles : array( 'guest' ),
 	) );
 }
 
