@@ -24,6 +24,32 @@ if (file_exists($conv_dir.'config.php'))
 	$conv_config = require $conv_dir.'config.php';
 }
 
+/**
+ * Get script id
+ * @return string
+ */
+function conv_get_script_id()
+{
+	global $conv_config;
+	$url = wp_parse_url($conv_config['host']);
+	if ( ! preg_match('/^(.*?)(convertful|devcf)\.(com|su|local)$/', $url['host']))
+	{
+		return 'optin-api';
+	}
+	return 'convertful-api';
+}
+
+/**
+ * Get script file name
+ * @return string
+ */
+function conv_get_script_filename()
+{
+	return conv_get_script_id() === 'convertful-api'
+		? 'Convertful.js'
+		: 'optin.js';
+}
+
 add_action( 'init', 'conv_init' );
 function conv_init() {
 	if ( get_option( 'optinguru_owner_id' ) ) {
@@ -48,8 +74,8 @@ require $conv_dir . 'functions/shortcodes.php';
 
 function conv_enqueue_scripts() {
 	global $conv_config, $conv_version;
-	$script_id = sprintf('%s-api', $conv_config['script_id']);
-	wp_enqueue_script( $script_id, $conv_config['host'].'/'.$conv_config['script_name'], array(), $conv_version, TRUE );
+	$script_id = conv_get_script_id();
+	wp_enqueue_script( $script_id, $conv_config['host'].'/'.conv_get_script_filename(), array(), $conv_version, TRUE );
 
 	$tags = array();
 	$the_tags = get_the_tags();
@@ -79,11 +105,11 @@ function conv_enqueue_scripts() {
 
 function conv_script_loader_tag( $tag, $handle ) {
 	global $conv_config;
-	$script_id = sprintf('%s-api', $conv_config['script_id']);
+	$script_id = conv_get_script_id();
 	if ( $handle !== $script_id ) {
 		return $tag;
 	}
-	$script = sprintf( '%s/%s?owner=%s', $conv_config['host'], $conv_config['script_name'], get_option( 'conv_owner_id' ) );
+	$script = sprintf( '%s/%s?owner=%s', $conv_config['host'], conv_get_script_filename(), get_option( 'conv_owner_id' ) );
 	return sprintf(
 		'<script type="text/javascript" id="%s" src="%s" async="async"></script>',
 		$script_id,

@@ -7,6 +7,4 @@ return [
 	// Plugin settings
 	'title' => 'Convertful',
 	'host' => 'https://app.convertful.com',
-	'script_id' => 'convertful',
-	'script_name' => 'Convertful.js',
 ];
