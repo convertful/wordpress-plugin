@@ -12,23 +12,57 @@
  */
 
 // Global variables for plugin usage (global declaration is needed here for WP CLI compatibility)
-global $conv_file, $conv_dir, $conv_uri, $conv_version, $conv_domain;
-//$conv_domain = 'http://convertful.local';
-$conv_domain = 'https://app.convertful.com';
+global $conv_file, $conv_dir, $conv_uri, $conv_version;
 $conv_file = __FILE__;
 $conv_dir = plugin_dir_path( __FILE__ );
 $conv_uri = plugins_url( '', __FILE__ );
 $conv_version = preg_match( '~Version\: ([^\n]+)~', file_get_contents( __FILE__, NULL, NULL, 82, 150 ), $conv_matches ) ? $conv_matches[1] : FALSE;
 unset( $conv_matches );
 
+if (file_exists($conv_dir.'config.php'))
+{
+	$conv_config = require $conv_dir.'config.php';
+}
+
+/**
+ * Get script id
+ * @return string
+ */
+function conv_get_script_id()
+{
+	global $conv_config;
+	$url = wp_parse_url($conv_config['host']);
+	if ( ! preg_match('/^(.*?)(convertful|devcf)\.(com|su|local)$/', $url['host']))
+	{
+		return 'optin-api';
+	}
+	return 'convertful-api';
+}
+
+/**
+ * Get script file name
+ * @return string
+ */
+function conv_get_script_filename()
+{
+	return conv_get_script_id() === 'convertful-api'
+		? 'Convertful.js'
+		: 'optin.js';
+}
+
 add_action( 'init', 'conv_init' );
 function conv_init() {
 	if ( get_option( 'optinguru_owner_id' ) ) {
-		update_option( 'convertful_owner_id', get_option( 'optinguru_owner_id' ), TRUE );
-		update_option( 'convertful_site_id', get_option( 'optinguru_site_id', get_option( 'optinguru_website_id' ) ), FALSE );
-		update_option( 'convertful_token', get_option( 'optinguru_token' ), FALSE );
+		update_option( 'conv_owner_id', get_option( 'optinguru_owner_id' ), TRUE );
+		update_option( 'conv_site_id', get_option( 'optinguru_site_id', get_option( 'optinguru_website_id' ) ), FALSE );
+		update_option( 'conv_token', get_option( 'optinguru_token' ), FALSE );
 	}
-	$owner_id = get_option( 'convertful_owner_id' );
+	if ( get_option( 'convertful_owner_id' ) ) {
+		update_option( 'conv_owner_id', get_option( 'convertful_owner_id' ), TRUE );
+		update_option( 'conv_site_id', get_option( 'convertful_site_id' ), FALSE );
+		update_option( 'conv_token', get_option( 'convertful_token' ), FALSE );
+	}
+	$owner_id = get_option( 'conv_owner_id' );
 	if ( ! is_admin() AND $owner_id !== FALSE ) {
 		add_action( 'wp_enqueue_scripts', 'conv_enqueue_scripts' );
 		add_filter( 'script_loader_tag', 'conv_script_loader_tag', 10, 2 );
@@ -44,8 +78,9 @@ if ( is_admin() ) {
 require $conv_dir . 'functions/shortcodes.php';
 
 function conv_enqueue_scripts() {
-	global $conv_domain, $conv_version;
-	wp_enqueue_script( 'convertful-api', $conv_domain . '/Convertful.js', array(), $conv_version, TRUE );
+	global $conv_config, $conv_version;
+	$script_id = conv_get_script_id();
+	wp_enqueue_script( $script_id, $conv_config['host'].'/'.conv_get_script_filename(), array(), $conv_version, TRUE );
 
 	$tags = array();
 	$the_tags = get_the_tags();
@@ -65,7 +100,7 @@ function conv_enqueue_scripts() {
 
 	$user_meta = wp_get_current_user();
 
-	wp_localize_script( 'convertful-api', 'convPlatformVars', array(
+	wp_localize_script( $script_id, 'convPlatformVars', array(
 		'postType' => get_post_type(),
 		'categories' => $categories,
 		'tags' => $tags,
@@ -74,12 +109,17 @@ function conv_enqueue_scripts() {
 }
 
 function conv_script_loader_tag( $tag, $handle ) {
-	if ( $handle !== 'convertful-api' ) {
+	global $conv_config;
+	$script_id = conv_get_script_id();
+	if ( $handle !== $script_id ) {
 		return $tag;
 	}
-	global $conv_domain;
-
-	return '<script type="text/javascript" id="convertful-api" src="' . $conv_domain . '/Convertful.js" data-owner="' . get_option( 'convertful_owner_id' ) . '" async="async"></script>';
+	$script = sprintf( '%s/%s?owner=%s', $conv_config['host'], conv_get_script_filename(), get_option( 'conv_owner_id' ) );
+	return sprintf(
+		'<script type="text/javascript" id="%s" src="%s" async="async"></script>',
+		$script_id,
+		$script
+	);
 }
 
 add_action( 'admin_enqueue_scripts', 'conv_admin_enqueue_scripts' );
@@ -100,16 +140,16 @@ function conv_activated_plugin( $plugin ) {
 		return;
 	}
 	// Taking into account promotional links
-	$ref_data = get_transient( 'convertful-ref' );
+	$ref_data = get_transient( 'conv-ref' );
 	if ( $ref_data AND strpos( $ref_data, '|' ) !== FALSE ) {
 		$ref_data = explode( '|', $ref_data );
 		// Preventing violations with lifetime values
 		if ( time() - intval( $ref_data[1] ) < DAY_IN_SECONDS ) {
-			update_option( 'convertful_ref', $ref_data[0], FALSE );
+			update_option( 'conv_ref', $ref_data[0], FALSE );
 		}
-		delete_transient( 'convertful-ref' );
+		delete_transient( 'conv-ref' );
 	}
-	$owner_id = get_option( 'convertful_owner_id' );
+	$owner_id = get_option( 'conv_owner_id' );
 	if ( $owner_id === FALSE ) {
 		$redirect_location = admin_url( 'tools.php?page=conv-settings' );
 		if ( wp_doing_ajax() ) {
@@ -148,6 +188,7 @@ function conv_uninstall() {
 	foreach ( array( 'owner_id', 'site_id', 'website_id', 'token', 'ref' ) as $option_name ) {
 		delete_option( 'optinguru_' . $option_name );
 		delete_option( 'convertful_' . $option_name );
+		delete_option( 'conv_' . $option_name );
 	}
 }
 
@@ -157,7 +198,7 @@ if ( wp_doing_ajax() OR defined( 'DOING_AJAX' ) ) {
 	add_action( 'wp_ajax_nopriv_conv_get_info', 'conv_get_info' );
 	function conv_get_info() {
 
-		if ( $_POST['access_token'] !== get_option( 'convertful_token' )) {
+		if ( $_POST['access_token'] !== get_option( 'conv_token' )) {
 			wp_send_json_error( array(
 				'access_token' => 'Wrong access token',
 			) );
@@ -205,7 +246,7 @@ if ( wp_doing_ajax() OR defined( 'DOING_AJAX' ) ) {
 	add_action( 'wp_ajax_nopriv_conv_complete_authorization', 'conv_complete_authorization' );
 	function conv_complete_authorization() {
 
-		if ( $_POST['access_token'] !== get_option( 'convertful_token' )) {
+		if ( $_POST['access_token'] !== get_option( 'conv_token' )) {
 			wp_send_json_error( array(
 				'access_token' => 'Wrong access token',
 			) );
@@ -219,8 +260,8 @@ if ( wp_doing_ajax() OR defined( 'DOING_AJAX' ) ) {
 			}
 		}
 
-		update_option( 'convertful_owner_id', (int) $_POST['owner_id'], TRUE );
-		update_option( 'convertful_site_id', (int) $_POST['site_id'], FALSE );
+		update_option( 'conv_owner_id', (int) $_POST['owner_id'], TRUE );
+		update_option( 'conv_site_id', (int) $_POST['site_id'], FALSE );
 
 		wp_send_json_success();
 	}
