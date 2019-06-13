@@ -57,6 +57,11 @@ function conv_init() {
 		update_option( 'conv_site_id', get_option( 'optinguru_site_id', get_option( 'optinguru_website_id' ) ), FALSE );
 		update_option( 'conv_token', get_option( 'optinguru_token' ), FALSE );
 	}
+	if ( get_option( 'convertful_owner_id' ) ) {
+		update_option( 'conv_owner_id', get_option( 'convertful_owner_id' ), TRUE );
+		update_option( 'conv_site_id', get_option( 'convertful_site_id' ), FALSE );
+		update_option( 'conv_token', get_option( 'convertful_token' ), FALSE );
+	}
 	$owner_id = get_option( 'conv_owner_id' );
 	if ( ! is_admin() AND $owner_id !== FALSE ) {
 		add_action( 'wp_enqueue_scripts', 'conv_enqueue_scripts' );
