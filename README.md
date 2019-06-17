@@ -20,38 +20,22 @@ Start with the FREE plan, that already includes:
 
 ### Provides all the Modern On-Site Conversion Solutions 👇
 
- 1. **Spin-to-Win Gamification**
-Increase your *Email Subscribers* and *Sales Conversion Rate* by offering your visitors to win a coupon code in exchange for the email address.
-2. **Scratch Card Gamification**
-Increase *Email Subscribers*, *Sales Conversion Rate*, and *Percentage or Returning Customers*, by providing the unique gamification experience, which your competitors aren't using yet.
-3. **Segmentation Surveys**
-Increase *Sales Conversion Rate*, *Customer Lifetime Value*, and *Email Subscribers* by auto-segmenting ~5.8% of your visitors, and instantly making them personalized highly-relevant offers.
-4. **Quiz Funnels**
-Increase *Sales Conversion Rate*, *Customer Lifetime Value*, and *Generate Leads* by offering a personalized answer, solution, or case study for taking a short survey. You can tag your visitors based on their answers to build personal communication in the future.
-5. **Welcome Video Pop-ups**
-*Retarget* up to 7.1% of new visitors to the sign-up page and *Increase Sign-ups* by the welcome popup that shows your Hero Video and offers a quick yes/no choice.
-6. **Cart Abandonment Pop-ups**
-Reduce <strong>Shopping Cart Abandonment Rate</strong> and increase <strong>Sales Conversion Rate</strong> by offering a discount right before a visitor leaves your cart or checkout pages. It generally recovers ~21% of leaving buyers.
-7. **Welcome Discounts**
-Increase *Sales Conversion Rate* and *Email Subscribers* by offering a welcome discount in exchange for an email subscription to first-time visitors. Complementary countdown timer can show an evergreen deadline to boost conversions.
-8. **Follow Coupon Boxes**
-Reduce *Abandonment Rate* and increase *Social Followers* by offering a welcome discount to new visitors in exchange for their social follows just before they leave.
-9. **Welcome Giveaway Contests**
-Increase *Email Subscribers* by offering a chance to win a valuable giveaway for opting-in. Or increase *Website Traffic* asking to share your store URL.
-10. **Deadline Funnels**
-Generate *Leads* and boost *Sales Conversion Rate* by creating an urgency via live countdown timers. You can add countdown timers to any of your widgets and you can create a personal evergreen deadline for every visitor.
-11.  **Yes/No Welcome Mats**
-Convert ~4.5% of new visitors into *Email Subscribers* by making your best offer with a huge noticeable welcome screen.
-12. **Targeted Content Upgrades**
-Convert ~3.2% of article readers into *Email Subscribers* by offering a highly-relevant additional content in exchange for the opt-in.
-13. **Yes/No Exit Intent Pop-ups**
-Recover ~1.8% of leaving visitors into *Email Subscribers* by gently offering a tripwire right before your visitors leave.
-14. **Content Lockings**
-Convert up to 17.6% of your visitors into *Email Subscribers* and *Leads* by requiring your visitors to opt-in in order to view your premium content.
-15. **Social Subscription Pop-ups**
-Increase *Email Subscribers* and generate more *Leads* by placing a complementary 'Subscribe with Facebook' button. Once a visitor clicks this button, Convertful grabs his/her name and email address and sends straight to your email list. This allows to reduce friction and avoid email typos.
-16. **Account-Based Personal Offers**
-Deep-connect Convertful with your CRM to make the most personalized offers to your site visitors, based on their tags, custom field values, or other properties from the CRM.
+ 1. **Spin-to-Win Gamification** — Increase your *Email Subscribers* and *Sales Conversion Rate* by offering your visitors to win a coupon code in exchange for the email address.
+2. **Scratch Card Gamification** — Increase *Email Subscribers*, *Sales Conversion Rate*, and *Percentage or Returning Customers*, by providing the unique gamification experience, which your competitors aren't using yet.
+3. **Segmentation Surveys** — Increase *Sales Conversion Rate*, *Customer Lifetime Value*, and *Email Subscribers* by auto-segmenting ~5.8% of your visitors, and instantly making them personalized highly-relevant offers.
+4. **Quiz Funnels** — Increase *Sales Conversion Rate*, *Customer Lifetime Value*, and *Generate Leads* by offering a personalized answer, solution, or case study for taking a short survey. You can tag your visitors based on their answers to build personal communication in the future.
+5. **Welcome Video Pop-ups** — *Retarget* up to 7.1% of new visitors to the sign-up page and *Increase Sign-ups* by the welcome popup that shows your Hero Video and offers a quick yes/no choice.
+6. **Cart Abandonment Pop-ups** — Reduce <strong>Shopping Cart Abandonment Rate</strong> and increase <strong>Sales Conversion Rate</strong> by offering a discount right before a visitor leaves your cart or checkout pages. It generally recovers ~21% of leaving buyers.
+7. **Welcome Discounts** — Increase *Sales Conversion Rate* and *Email Subscribers* by offering a welcome discount in exchange for an email subscription to first-time visitors. Complementary countdown timer can show an evergreen deadline to boost conversions.
+8. **Follow Coupon Boxes** — Reduce *Abandonment Rate* and increase *Social Followers* by offering a welcome discount to new visitors in exchange for their social follows just before they leave.
+9. **Welcome Giveaway Contests** — Increase *Email Subscribers* by offering a chance to win a valuable giveaway for opting-in. Or increase *Website Traffic* asking to share your store URL.
+10. **Deadline Funnels** — Generate *Leads* and boost *Sales Conversion Rate* by creating an urgency via live countdown timers. You can add countdown timers to any of your widgets and you can create a personal evergreen deadline for every visitor.
+11.  **Yes/No Welcome Mats** — Convert ~4.5% of new visitors into *Email Subscribers* by making your best offer with a huge noticeable welcome screen.
+12. **Targeted Content Upgrades** — Convert ~3.2% of article readers into *Email Subscribers* by offering a highly-relevant additional content in exchange for the opt-in.
+13. **Yes/No Exit Intent Pop-ups** — Recover ~1.8% of leaving visitors into *Email Subscribers* by gently offering a tripwire right before your visitors leave.
+14. **Content Lockings** — Convert up to 17.6% of your visitors into *Email Subscribers* and *Leads* by requiring your visitors to opt-in in order to view your premium content.
+15. **Social Subscription Pop-ups** — Increase *Email Subscribers* and generate more *Leads* by placing a complementary 'Subscribe with Facebook' button. Once a visitor clicks this button, Convertful grabs his/her name and email address and sends straight to your email list. This allows to reduce friction and avoid email typos.
+16. **Account-Based Personal Offers** — Deep-connect Convertful with your CRM to make the most personalized offers to your site visitors, based on their tags, custom field values, or other properties from the CRM.
 
 ... and so much more!
 
