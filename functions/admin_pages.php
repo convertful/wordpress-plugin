@@ -64,7 +64,9 @@ function conv_settings_page() {
 					</div>
 				</form>
 			</div>
-			<a href="<?php echo esc_attr($conv_config['host']) ?>/docs/connect/wordpress/" class="conv-connect-help" target="_blank">Get help connecting your site</a>
+			<?php if(isset($conv_config['connect_help_url']) AND ! empty($conv_config['connect_help_url'])): ?>
+				<a href="<?php echo esc_attr($conv_config['host'].$conv_config['connect_help_url']) ?>" class="conv-connect-help" target="_blank">Get help connecting your site</a>
+			<?php endif; ?>
 		</div>
 		<?php
 	} else {
