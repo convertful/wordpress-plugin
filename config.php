@@ -7,4 +7,5 @@ return [
 	// Plugin settings
 	'title' => 'Convertful',
 	'host' => 'https://app.convertful.com',
+	'connect_help_url' => '/docs/connect/wordpress/',
 ];
