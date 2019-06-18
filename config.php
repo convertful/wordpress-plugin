@@ -1,11 +1,29 @@
 <?php defined( 'ABSPATH' ) OR die( 'This script cannot be accessed directly.' );
 
-return [
-	// Logos to display in the plugin
-	'logo' => 'https://app.convertful.com/assets/img/logo_blue.png',
-	'logo@2x' => 'https://app.convertful.com/assets/img/logo_blue@2x.png',
-	// Plugin settings
+return array(
+	/**
+	 * Plugin title
+	 */
 	'title' => 'Convertful',
+
+	/**
+	 * The URL of your dashboard
+	 */
 	'host' => 'https://app.convertful.com',
-	'connect_help_url' => '/docs/connect/wordpress/',
-];
+
+	/**
+	 * The link to the connection manual
+	 */
+	'connect_help_url' => 'https://app.convertful.com/docs/connect/wordpress/',
+
+	/**
+	 * The link to your logo. Recommended size: 265x36 px
+	 */
+	'logo' => 'https://app.convertful.com/assets/img/logo_blue.png',
+
+	/**
+	 * The link to the retina-resolution logo. Recommended size: 530x72 px.
+	 */
+	'logo@2x' => 'https://app.convertful.com/assets/img/logo_blue@2x.png',
+
+);

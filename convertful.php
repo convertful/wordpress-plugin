@@ -12,7 +12,7 @@
  */
 
 // Global variables for plugin usage (global declaration is needed here for WP CLI compatibility)
-global $conv_file, $conv_dir, $conv_uri, $conv_version;
+global $conv_file, $conv_dir, $conv_uri, $conv_version, $conv_config;
 $conv_file = __FILE__;
 $conv_dir = plugin_dir_path( __FILE__ );
 $conv_uri = plugins_url( '', __FILE__ );
@@ -32,7 +32,7 @@ function conv_get_script_id()
 {
 	global $conv_config;
 	$url = wp_parse_url($conv_config['host']);
-	if ( ! preg_match('/^(.*?)(convertful|devcf)\.(com|su|local)$/', $url['host']))
+	if ( ! preg_match('/^(.*?)(convertful|devcf)\.[a-z]{3,5}$/', $url['host']))
 	{
 		return 'optin-api';
 	}
