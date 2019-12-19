@@ -1,5 +1,59 @@
 <?php defined( 'ABSPATH' ) OR die( 'This script cannot be accessed directly.' );
 
+add_action('admin_enqueue_scripts', 'conv_admin_enqueue_scripts');
+function conv_admin_enqueue_scripts($hook)
+{
+	if ($hook !== 'tools_page_conv-settings')
+	{
+		return;
+	}
+
+	global $conv_uri, $conv_version;
+	wp_enqueue_style('conv-main', $conv_uri.'/css/main.css', [], $conv_version);
+	wp_enqueue_script('conv-main', $conv_uri.'/js/main.js', ['jquery'], $conv_version);
+}
+
+add_action('activated_plugin', 'conv_activated_plugin');
+function conv_activated_plugin($plugin)
+{
+	global $conv_file;
+	if ($plugin !== plugin_basename($conv_file))
+	{
+		return;
+	}
+	// Taking into account promotional links
+	$ref_data = get_transient('conv-ref');
+	if ($ref_data AND strpos($ref_data, '|') !== FALSE)
+	{
+		$ref_data = explode('|', $ref_data);
+		// Preventing violations with lifetime values
+		if (time() - intval($ref_data[1]) < DAY_IN_SECONDS)
+		{
+			update_option('conv_ref', $ref_data[0], FALSE);
+		}
+		delete_transient('conv-ref');
+	}
+	$owner_id = get_option('conv_owner_id');
+	if ($owner_id === FALSE)
+	{
+		$redirect_location = admin_url('tools.php?page=conv-settings');
+		if (wp_doing_ajax())
+		{
+			wp_send_json_success(['location' => $redirect_location]);
+		}
+		wp_redirect($redirect_location);
+		exit;
+	}
+}
+
+
+add_filter('plugin_action_links_'.plugin_basename(__FILE__), 'conv_plugin_action_links');
+function conv_plugin_action_links($links)
+{
+	return array_merge(['<a href="'.admin_url('tools.php?page=conv-settings').'">'.__('Settings').'</a>'], $links);
+}
+
+
 add_action( 'admin_menu', 'conv_add_admin_pages', 30 );
 function conv_add_admin_pages() {
 	global $conv_config;
@@ -55,7 +109,7 @@ function conv_settings_page() {
 						<input type="hidden" name="domain" value="<?php echo esc_attr( preg_replace( '~^https?:\/\/~', '', get_site_url() ) ) ?>">
 
 						<input type="hidden" name="credentials[index_page_url]" value="<?php echo esc_attr( get_home_url() ) ?>">
-						<input type="hidden" name="credentials[ajax_url]" value="<?php echo esc_attr( admin_url('admin-ajax.php') ) ?>">
+						<input type="hidden" name="credentials[ajax_url]" value="<?php echo esc_attr( get_home_url().'/wp-json/convertful/v2/' ) ?>">
 						<input type="hidden" name="credentials[access_token]" value="<?php echo esc_attr( $access_token ) ?>">
 
 						<button class="conv-btn action_connect">
