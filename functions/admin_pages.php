@@ -47,13 +47,6 @@ function conv_activated_plugin($plugin)
 }
 
 
-add_filter('plugin_action_links_'.plugin_basename(__FILE__), 'conv_plugin_action_links');
-function conv_plugin_action_links($links)
-{
-	return array_merge(['<a href="'.admin_url('tools.php?page=conv-settings').'">'.__('Settings').'</a>'], $links);
-}
-
-
 add_action( 'admin_menu', 'conv_add_admin_pages', 30 );
 function conv_add_admin_pages() {
 	global $conv_config;
@@ -109,7 +102,7 @@ function conv_settings_page() {
 						<input type="hidden" name="domain" value="<?php echo esc_attr( preg_replace( '~^https?:\/\/~', '', get_site_url() ) ) ?>">
 
 						<input type="hidden" name="credentials[index_page_url]" value="<?php echo esc_attr( get_home_url() ) ?>">
-						<input type="hidden" name="credentials[ajax_url]" value="<?php echo esc_attr( get_home_url().'/wp-json/convertful/v2/' ) ?>">
+						<input type="hidden" name="credentials[ajax_url]" value="<?php echo esc_attr( get_home_url().'/index.php?rest_route=/convertful/v2/' ) ?>">
 						<input type="hidden" name="credentials[access_token]" value="<?php echo esc_attr( $access_token ) ?>">
 
 						<button class="conv-btn action_connect">

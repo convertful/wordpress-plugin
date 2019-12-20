@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: Convertful - Your Ultimate On-Site Conversion Tool
- * Version: 2
+ * Version: 2.0
  * Plugin URI: https://convertful.com/
  * Description: All the modern on-site conversion solutions, natively integrates with all modern Email Marketing
  * Platforms. Author: Convertful License: GPLv2 or later License URI: http://www.gnu.org/licenses/gpl-2.0.html Text
@@ -28,22 +28,13 @@ if (is_admin())
 	require $conv_dir.'functions/admin_pages.php';
 }
 
+add_filter('plugin_action_links_'.plugin_basename(__FILE__), 'conv_plugin_action_links');
+
 // Shortcodes
 require $conv_dir.'functions/shortcodes.php';
 register_uninstall_hook($conv_file, 'conv_uninstall');
 
 add_action('rest_api_init', function () {
-	register_rest_route('convertful/v2', '/sync/', [
-		'methods' => 'GET',
-		'callback' => 'test_function',
-		'args' => [
-			'id' => [
-				'validate_callback' => function ($param, $request, $key) {
-					return is_numeric($param);
-				},
-			],
-		],
-	]);
 
 	register_rest_route('convertful/v2', '/complete_authorization/', [
 		'methods' => 'POST',
@@ -160,6 +151,17 @@ function conv_script_loader_tag($tag, $handle)
 	);
 }
 
+function conv_uninstall()
+{
+	// Options cleanup
+	foreach (['owner_id', 'site_id', 'website_id', 'token', 'ref'] as $option_name)
+	{
+		delete_option('optinguru_'.$option_name);
+		delete_option('convertful_'.$option_name);
+		delete_option('conv_'.$option_name);
+	}
+}
+
 function conv_complete_authorization(WP_REST_Request $request)
 {
 	$access_token = $request->get_param('access_token');
@@ -186,17 +188,6 @@ function conv_complete_authorization(WP_REST_Request $request)
 	update_option('conv_site_id', (int) $site_id, FALSE);
 
 	wp_send_json_success();
-}
-
-function conv_uninstall()
-{
-	// Options cleanup
-	foreach (['owner_id', 'site_id', 'website_id', 'token', 'ref'] as $option_name)
-	{
-		delete_option('optinguru_'.$option_name);
-		delete_option('convertful_'.$option_name);
-		delete_option('conv_'.$option_name);
-	}
 }
 
 function conv_get_info(WP_REST_Request $request)
@@ -242,12 +233,12 @@ function conv_get_info(WP_REST_Request $request)
 	}
 	$user_roles['guest'] = 'Guest (Unauthenticated)';
 
-	$result = array(
+	$result = [
 		'tags' => $tags,
 		'categories' => $categories,
 		'post_types' => $post_types,
 		'user_roles' => $user_roles,
-	);
+	];
 
 	wp_send_json_success($result);
 }
@@ -260,4 +251,9 @@ function conv_after_post_content($content)
 	}
 
 	return $content;
+}
+
+function conv_plugin_action_links($links)
+{
+	return array_merge(['<a href="'.admin_url('tools.php?page=conv-settings').'">'.__('Settings').'</a>'], $links);
 }
