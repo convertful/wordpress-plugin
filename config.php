@@ -9,7 +9,7 @@ return array(
 	/**
 	 * The URL of your dashboard
 	 */
-	'host' => 'http://convertful.local',
+	'host' => 'https://app.convertful.com',
 
 	/**
 	 * The link to the connection manual
