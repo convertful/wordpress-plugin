@@ -4,9 +4,11 @@
  * Plugin Name: Convertful - Your Ultimate On-Site Conversion Tool
  * Version: 2.0
  * Plugin URI: https://convertful.com/
- * Description: All the modern on-site conversion solutions, natively integrates with all modern Email Marketing
- * Platforms. Author: Convertful License: GPLv2 or later License URI: http://www.gnu.org/licenses/gpl-2.0.html Text
- * Domain: convertful
+ * Description: All the modern on-site conversion solutions, natively integrates with all modern Email Marketing Platforms.
+ * Author: Convertful
+ * License: GPLv2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain: convertful
  */
 
 // Global variables for plugin usage (global declaration is needed here for WP CLI compatibility)
