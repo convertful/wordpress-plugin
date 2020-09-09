@@ -1,4 +1,4 @@
-<?php defined( 'ABSPATH' ) OR die( 'This script cannot be accessed directly.' );
+<?php defined( 'ABSPATH' ) or die( 'This script cannot be accessed directly.' );
 
 add_action( 'init', 'conv_register_shortcodes', 20 );
 function conv_register_shortcodes() {
@@ -7,5 +7,5 @@ function conv_register_shortcodes() {
 }
 
 function conv_handle_shortcode( $atts, $content, $shortcode ) {
-	return isset( $atts['id'] ) ? '<div class="'. $shortcode .'-' . intval( $atts['id'] ) . '"></div>' : '';
+	return isset( $atts['id'] ) ? '<div class="' . $shortcode . '-' . intval( $atts['id'] ) . '"></div>' : '';
 }

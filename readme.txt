@@ -2,8 +2,8 @@
 Contributors: rsukhar
 Tags: optin, opt-in, mailchimp, popup, bar, slidein, subscribe, signup, form, email, marketing, lead, campaign
 Requires at least: 4.0
-Tested up to: 5.3.2
-Stable tag: 2.0
+Tested up to: 5.5.1
+Stable tag: 2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -100,6 +100,9 @@ Back-end (editor): Edge, two latest versions of Chrome, Safari, FireFox and Oper
 5. Easily connect your WordPress site
 
 == Changelog ==
+
+= 2.1 =
+* Bug fixes
 
 = 2.0 =
 * Change REST URL's
