@@ -39,11 +39,13 @@ add_action( 'rest_api_init', function () {
 	register_rest_route( 'convertful/v2', '/complete_authorization/', [
 		'methods'  => 'POST',
 		'callback' => 'conv_complete_authorization',
+		'permission_callback' => '__return_true',
 	] );
 
 	register_rest_route( 'convertful/v2', '/get_info/', [
 		'methods'  => 'POST',
 		'callback' => 'conv_get_info',
+		'permission_callback' => '__return_true',
 	] );
 } );
 
