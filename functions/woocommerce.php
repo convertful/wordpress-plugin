@@ -39,6 +39,7 @@ function get_woo_products()
 {
 	$args = array(
 		'order' => 'DESC',
+		'limit' => -1,
 	);
 	$products = wc_get_products( $args );
 	$product_names = array();
