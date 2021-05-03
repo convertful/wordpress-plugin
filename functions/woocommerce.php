@@ -3,19 +3,19 @@
 //global $woocommerce;
 
 add_action( 'rest_api_init', function () {
-	register_rest_route( 'convertful/v2', '/add_to_woo_cart/', [
+	register_rest_route( 'convertful/v2', '/add_to_woo_cart/', array(
 		'methods'  => 'POST',
 		'callback' => 'add_to_woo_cart',
 		'permission_callback' => '__return_true',
-	]);
-	register_rest_route( 'convertful/v2', '/add_woo_coupon/', [
+	) );
+	register_rest_route( 'convertful/v2', '/add_woo_coupon/', array(
 		'methods'  => 'POST',
 		'callback' => 'add_woo_coupon',
 		'permission_callback' => '__return_true',
-	]);
+	) );
 });
 
-function get_woo_coupons()
+/*function get_woo_coupons()
 {
 	$args = array(
 		'posts_per_page'   => -1,
@@ -33,7 +33,7 @@ function get_woo_coupons()
 	}
 
 	return $coupon_names;
-}
+}*/
 
 function get_woo_products()
 {

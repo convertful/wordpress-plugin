@@ -1,15 +1,12 @@
-<?php defined('ABSPATH') OR die('This script cannot be accessed directly.');
+<?php defined( 'ABSPATH' ) or die( 'This script cannot be accessed directly.' );
 
 /**
  * Plugin Name: Convertful - Your Ultimate On-Site Conversion Tool
  * Version: 2.2
  * Plugin URI: https://convertful.com/
- * Description: All the modern on-site conversion solutions, natively integrates with all modern Email Marketing Platforms.
- * Author: Convertful
- * Author URI: https://convertful.com
- * License: GPLv2 or later
- * License URI: http://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: convertful
+ * Description: All the modern on-site conversion solutions, natively integrates with all modern Email Marketing
+ * Platforms. Author: Convertful Author URI: https://convertful.com License: GPLv2 or later License URI:
+ * http://www.gnu.org/licenses/gpl-2.0.html Text Domain: convertful
  */
 
 // Global variables for plugin usage (global declaration is needed here for WP CLI compatibility)
@@ -36,20 +33,20 @@ require $conv_dir . 'functions/shortcodes.php';
 register_uninstall_hook( $conv_file, 'conv_uninstall' );
 
 add_action( 'rest_api_init', function () {
-	register_rest_route( 'convertful/v2', '/complete_authorization/', [
-		'methods'  => 'POST',
-		'callback' => 'conv_complete_authorization',
+	register_rest_route( 'convertful/v2', '/complete_authorization/', array(
+		'methods'             => 'POST',
+		'callback'            => 'conv_complete_authorization',
 		'permission_callback' => '__return_true',
-	] );
+	) );
 
-	register_rest_route( 'convertful/v2', '/get_info/', [
-		'methods'  => 'POST',
-		'callback' => 'conv_get_info',
+	register_rest_route( 'convertful/v2', '/get_info/', array(
+		'methods'             => 'POST',
+		'callback'            => 'conv_get_info',
 		'permission_callback' => '__return_true',
-	] );
+	) );
 } );
 
-function conv_init()  {
+function conv_init() {
 	global $conv_dir;
 
 	if ( get_option( 'optinguru_owner_id' ) ) {
@@ -71,11 +68,11 @@ function conv_init()  {
 		add_filter( 'the_content', 'conv_after_post_content' );
 	}
 
-	if (function_exists( 'woocommerce_get_page_id' ))
-	{
+	if ( class_exists( 'woocommerce' ) or class_exists( 'WooCommerce' ) ) {
 		require $conv_dir . 'functions/woocommerce.php';
 	}
 }
+
 /**
  * Get script id
  * @return string
@@ -103,7 +100,7 @@ function conv_get_script_filename() {
 function conv_enqueue_scripts() {
 	global $conv_config, $conv_version;
 	$script_id = conv_get_script_id();
-	wp_enqueue_script( $script_id, $conv_config['host'] . '/' . conv_get_script_filename(), [], $conv_version, TRUE );
+	wp_enqueue_script( $script_id, $conv_config['host'] . '/' . conv_get_script_filename(), array(), $conv_version, TRUE );
 
 	$tags     = array();
 	$the_tags = get_the_tags();
@@ -113,7 +110,7 @@ function conv_enqueue_scripts() {
 		}
 	}
 
-	$categories     = [];
+	$categories     = array();
 	$the_categories = get_the_category();
 	if ( is_array( $the_categories ) ) {
 		foreach ( $the_categories as $category ) {
@@ -123,13 +120,13 @@ function conv_enqueue_scripts() {
 
 	$user_meta = wp_get_current_user();
 
-	wp_localize_script( $script_id, 'convPlatformVars', [
+	wp_localize_script( $script_id, 'convPlatformVars', array(
 		'postType'   => get_post_type(),
 		'categories' => $categories,
 		'tags'       => $tags,
-		'ajax_url'   => get_home_url() . '/index.php?rest_route=/convertful/v2/' ,
-		'userRoles'  => ( $user_meta instanceof WP_User and ! empty( $user_meta->roles ) ) ? $user_meta->roles : [ 'guest' ],
-	] );
+		'ajax_url'   => get_home_url() . '/index.php?rest_route=/convertful/v2/',
+		'userRoles'  => ( $user_meta instanceof WP_User and ! empty( $user_meta->roles ) ) ? $user_meta->roles : array( 'guest' ),
+	) );
 }
 
 function conv_script_loader_tag( $tag, $handle ) {
@@ -149,7 +146,7 @@ function conv_script_loader_tag( $tag, $handle ) {
 
 function conv_uninstall() {
 	// Options cleanup
-	foreach ( [ 'owner_id', 'site_id', 'website_id', 'token', 'ref' ] as $option_name ) {
+	foreach ( array( 'owner_id', 'site_id', 'website_id', 'token', 'ref' ) as $option_name ) {
 		delete_option( 'optinguru_' . $option_name );
 		delete_option( 'convertful_' . $option_name );
 		delete_option( 'conv_' . $option_name );
@@ -157,8 +154,8 @@ function conv_uninstall() {
 }
 
 function conv_complete_authorization( $request ) {
-	$owner_id     = (int) $request->get_param( 'owner_id' );
-	$site_id      = (int) $request->get_param( 'site_id' );
+	$owner_id = (int) $request->get_param( 'owner_id' );
+	$site_id  = (int) $request->get_param( 'site_id' );
 
 	conv_check_access();
 	if ( empty( $owner_id ) ) {
@@ -177,18 +174,18 @@ function conv_complete_authorization( $request ) {
 
 function conv_get_info( /*WP_REST_Request $request*/ ) {
 	conv_check_access();
-	$tags = [];
+	$tags = array();
 	foreach ( get_tags() as $tag ) {
 		$tags[ $tag->slug ] = $tag->name;
 	}
 
-	$categories = [];
+	$categories = array();
 	foreach ( get_categories() as $category ) {
 		$categories[ $category->slug ] = $category->name;
 	}
 
-	$post_types = [];
-	foreach ( get_post_types( [ 'public' => TRUE ], 'objects' ) as $post_type ) {
+	$post_types = array();
+	foreach ( get_post_types( array( 'public' => TRUE ), 'objects' ) as $post_type ) {
 		$post_type_name  = isset( $post_type->name ) ? $post_type->name : NULL;
 		$post_type_title = ( isset( $post_type->labels ) and isset( $post_type->labels->singular_name ) )
 			? $post_type->labels->singular_name
@@ -205,18 +202,18 @@ function conv_get_info( /*WP_REST_Request $request*/ ) {
 	}
 	$user_roles['guest'] = 'Guest (Unauthenticated)';
 
-	$result = [
+	$result = array(
 		'tags'       => $tags,
 		'categories' => $categories,
 		'post_types' => $post_types,
 		'user_roles' => $user_roles,
-	];
+	);
 
-	if (function_exists( 'woocommerce_get_page_id' )){
+	if ( class_exists( 'woocommerce' ) or class_exists( 'WooCommerce' ) ) {
 		// Add WooCommerce coupons and products
-		$result['woo_coupons'] = get_woo_coupons();
+		//$result['woo_coupons'] = get_woo_coupons();
 		$result['woo_products'] = get_woo_products();
-		$result['woo_enabled'] = TRUE;
+		$result['woo_enabled']  = TRUE;
 	}
 
 	wp_send_json_success( $result );
@@ -225,15 +222,15 @@ function conv_get_info( /*WP_REST_Request $request*/ ) {
 
 function conv_check_access() {
 	if ( ! get_option( 'conv_token' ) ) {
-		wp_send_json_error( [ 'access_token' => 'Empty WP access token' ] );
+		wp_send_json_error( array( 'access_token' => 'Empty WP access token' ) );
 	}
 
 	if ( empty( $_POST['access_token'] ) ) {
-		wp_send_json_error( [ 'access_token' => 'Empty POST access token' ] );
+		wp_send_json_error( array( 'access_token' => 'Empty POST access token' ) );
 	}
 
 	if ( $_POST['access_token'] !== get_option( 'conv_token' ) ) {
-		wp_send_json_error( [ 'access_token' => 'Wrong access token' ] );
+		wp_send_json_error( array( 'access_token' => 'Wrong access token' ) );
 	}
 }
 
@@ -246,5 +243,5 @@ function conv_after_post_content( $content ) {
 }
 
 function conv_plugin_action_links( $links ) {
-	return array_merge( [ '<a href="' . admin_url( 'tools.php?page=conv-settings' ) . '">' . __( 'Settings' ) . '</a>' ], $links );
+	return array_merge( array( '<a href="' . admin_url( 'tools.php?page=conv-settings' ) . '">' . __( 'Settings' ) . '</a>' ), $links );
 }

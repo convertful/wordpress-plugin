@@ -7,8 +7,8 @@ function conv_admin_enqueue_scripts( $hook ) {
 	}
 
 	global $conv_uri, $conv_version;
-	wp_enqueue_style( 'conv-main', $conv_uri . '/css/main.css', [], $conv_version );
-	wp_enqueue_script( 'conv-main', $conv_uri . '/js/main.js', [ 'jquery' ], $conv_version );
+	wp_enqueue_style( 'conv-main', $conv_uri . '/css/main.css', array(), $conv_version );
+	wp_enqueue_script( 'conv-main', $conv_uri . '/js/main.js', array('jquery'), $conv_version );
 }
 
 add_action( 'activated_plugin', 'conv_activated_plugin' );
@@ -31,7 +31,7 @@ function conv_activated_plugin( $plugin ) {
 	if ( $owner_id === FALSE ) {
 		$redirect_location = admin_url( 'tools.php?page=conv-settings' );
 		if ( wp_doing_ajax() ) {
-			wp_send_json_success( [ 'location' => $redirect_location ] );
+			wp_send_json_success( array( 'location' => $redirect_location ) );
 		}
 		wp_redirect( $redirect_location );
 		exit;
