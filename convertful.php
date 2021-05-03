@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: Convertful - Your Ultimate On-Site Conversion Tool
- * Version: 2.2
+ * Version: 2.3
  * Plugin URI: https://convertful.com/
  * Description: All the modern on-site conversion solutions, natively integrates with all modern Email Marketing
  * Platforms. Author: Convertful Author URI: https://convertful.com License: GPLv2 or later License URI:
