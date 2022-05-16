@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: Convertful - Your Ultimate On-Site Conversion Tool
- * Version: 2.3
+ * Version: 2.4
  * Plugin URI: https://convertful.com/
  * Description: All the modern on-site conversion solutions, natively integrates with all modern Email Marketing
  * Platforms. Author: Convertful Author URI: https://convertful.com License: GPLv2 or later License URI:
@@ -104,7 +104,7 @@ function conv_enqueue_scripts() {
 
 	$tags     = array();
 	$the_tags = get_the_tags();
-	if ( is_array( $the_tags ) ) {
+	if ( is_array( $the_tags ) && ! is_category() && ! is_tag() ) {
 		foreach ( $the_tags as $tag ) {
 			$tags[] = $tag->slug;
 		}
@@ -112,7 +112,7 @@ function conv_enqueue_scripts() {
 
 	$categories     = array();
 	$the_categories = get_the_category();
-	if ( is_array( $the_categories ) ) {
+	if ( is_array( $the_categories ) && ! is_category() && ! is_tag() ) {
 		foreach ( $the_categories as $category ) {
 			$categories[] = $category->slug;
 		}
