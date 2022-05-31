@@ -2,8 +2,8 @@
 Contributors: rsukhar
 Tags: optin, opt-in, mailchimp, popup, bar, slidein, subscribe, signup, form, email, marketing, lead, campaign
 Requires at least: 4.0
-Tested up to: 5.9.3
-Stable tag: 2.4
+Tested up to: 6.0
+Stable tag: 2.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -100,6 +100,8 @@ Back-end (editor): Edge, two latest versions of Chrome, Safari, FireFox and Oper
 5. Easily connect your WordPress site
 
 == Changelog ==
+= 2.5 =
+* Tested compatibility with WordPress 6.0
 
 = 2.4 =
 * Bugs fixes, remove widgets from categories and tags lists
