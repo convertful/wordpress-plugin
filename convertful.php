@@ -104,7 +104,7 @@ function conv_enqueue_scripts() {
 
 	$tags     = array();
 	$the_tags = get_the_tags();
-	if ( is_array( $the_tags ) && ! is_category() && ! is_tag() && ! is_archive()) {
+	if ( is_array( $the_tags ) && is_singular()) {
 		foreach ( $the_tags as $tag ) {
 			$tags[] = $tag->slug;
 		}
@@ -112,7 +112,7 @@ function conv_enqueue_scripts() {
 
 	$categories     = array();
 	$the_categories = get_the_category();
-	if ( is_array( $the_categories ) && ! is_category() && ! is_tag() && ! is_archive()) {
+	if ( is_array( $the_categories ) && is_singular()) {
 		foreach ( $the_categories as $category ) {
 			$categories[] = $category->slug;
 		}
